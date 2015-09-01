@@ -5,65 +5,51 @@
   <meta charset="UTF-8">
   
     <title>Tiny Space</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=3, minimum-scale=1">
     
     <meta name="author" content="Deng Changbo">
     
-
-    
     <meta name="description" content="学习总结  习惯养成  个人信仰">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Tiny Space">
-<meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="Tiny Space">
-<meta property="og:description" content="学习总结  习惯养成  个人信仰">
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tiny Space">
-<meta name="twitter:description" content="学习总结  习惯养成  个人信仰">
-
     
-    <link rel="alternative" href="/atom.xml" title="Tiny Space" type="application/atom+xml">
+    
+    
     
     
     <link rel="icon" href="/img/favicon.ico">
     
     
-    <link rel="apple-touch-icon" href="/img/jacman.jpg">
-    <link rel="apple-touch-icon-precomposed" href="/img/jacman.jpg">
+    <link rel="apple-touch-icon" href="/img/pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/pacman.jpg">
     
     <link rel="stylesheet" href="/css/style.css" type="text/css">
 </head>
 
   <body>
     <header>
-      
-<div>
+      <div>
 		
 			<div id="imglogo">
-				<a href="/"><img src="/img/logo.png" alt="Tiny Space" title="Tiny Space"/></a>
+				<a href="/"><img src="/img/logo.svg" alt="Tiny Space" title="Tiny Space"/></a>
 			</div>
 			
 			<div id="textlogo">
 				<h1 class="site-name"><a href="/" title="Tiny Space">Tiny Space</a></h1>
 				<h2 class="blog-motto">自己的成长记录</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
 			</a></div>
 			<nav class="animated">
 				<ul>
-					<ul>
-					 
+					
 						<li><a href="/">Home</a></li>
 					
 						<li><a href="/archives">Archives</a></li>
 					
-						<li><a href="/about">About</a></li>
-					
 					<li>
- 					
+					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="search" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
 						<input type="hidden" name="q" value="site:yoursite.com">
 					</form>
 					
@@ -71,226 +57,111 @@
 				</ul>
 			</nav>			
 </div>
+
     </header>
     <div id="container">
       <div id="main">
 
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/08/17/Android-自定义View/" title="Android 自定义View" itemprop="url">Android 自定义View</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Deng Changbo" target="_blank" itemprop="author">Deng Changbo</a>
-		
-  <p class="article-time">
-    <time datetime="2015-08-17T08:25:22.000Z" itemprop="datePublished"> 發表於 2015-08-17</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>##继承已知Layout（如RelativeLayout和LinearLayout）</p>
-<p>###创建构造函数：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//该构造函数一般在Java文件中创建控件使用</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">DefinedView</span><span class="params">( Context context )</span></span>&#123;</span><br><span class="line">	<span class="keyword">super</span>( context );</span><br><span class="line">	LayoutInflater.from(context).inflate(R.layout.definedview, <span class="keyword">this</span>);</span><br><span class="line">	...</span><br><span class="line">	<span class="comment">//或者直接调用下一个函数，即使用以下代码：</span></span><br><span class="line">	<span class="keyword">this</span>( context, <span class="keyword">null</span> );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//该构造函数一般在xml文件中创建控件时候调用</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">DefinedView</span><span class="params">( Context context, AttributeSet attrs)</span></span>&#123;</span><br><span class="line">	<span class="keyword">super</span>(context, attrs);</span><br><span class="line">	LayoutInflater.from(context).inflate(R.layout.definedview, <span class="keyword">this</span>);</span><br><span class="line">	【<span class="number">1</span>】...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>对于这个构造函数，因为会在这里读取attrs文件来获得各项参数，所以还需要进行一系列复杂的操作：</p>
-<ol>
-<li>在res/values目录下创建一个attrs_definedview.xml文件，以<strong>resources</strong>作为最外层根标签，并定义<strong>styleable</strong>标签,如：<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="pi">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">resources</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">declare-styleable</span> <span class="attribute">name</span>=<span class="value">"DefinedView"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">attr</span> <span class="attribute">name</span>=<span class="value">"textSize"</span>           <span class="attribute">format</span>=<span class="value">"dimension"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">attr</span> <span class="attribute">name</span>=<span class="value">"text"</span>               <span class="attribute">format</span>=<span class="value">"string"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">attr</span> <span class="attribute">name</span>=<span class="value">"viewColor"</span>    <span class="attribute">format</span>=<span class="value">"color"</span> /&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--</span><br><span class="line">        dimension表示尺寸，一般是一些以dp,sp,px等单位的内容</span><br><span class="line">        string表示字符串，一般是text的内容</span><br><span class="line">        color表示颜色，一般是背景等的内容</span><br><span class="line">        --&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">declare-styleable</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">resources</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p><strong>值得注意的是，在这里所创建的styleable name必须和控件的名称保持一致，才能够顺利的使用xml文件来指定该控件的某些属性。</strong><br><br></p>
-<ol>
-<li>在构造函数（在之前的【1】处）中读取所创建的styleable内容<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">TypedArray array = context.obtainStyledAttributes(attrs,R.styleable.DefinedView);</span><br><span class="line"><span class="comment">//解析String</span></span><br><span class="line">String text = array.getString(R.styleable.DefinedView_text);</span><br><span class="line"><span class="keyword">if</span>(text == <span class="keyword">null</span> || text.isEmpty() )</span><br><span class="line">	text = <span class="string">"default text"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//解析Dimension</span></span><br><span class="line"><span class="keyword">float</span> textSize = array.getDimension(R.styleable.DefinedView_textSize, <span class="number">20</span>sp);</span><br><span class="line"></span><br><span class="line"><span class="comment">//解析color,后一个值表示未设置时的默认值</span></span><br><span class="line"><span class="keyword">int</span> color = array.getColor(R.styleable.DefinedView_viewColor, Color.RED);</span><br><span class="line"></span><br><span class="line"><span class="comment">//务必记得调用recycle()</span></span><br><span class="line">array.recycle();</span><br></pre></td></tr></table></figure></li>
-</ol>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/programming/">编程笔记</a>
-</div>
-
-
-  <div class="article-tags">
+  <section class="post" itemscope itemprop="blogPost">
   
-  <span></span> <a href="/tags/Android/">Android</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
-    
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
-    
-      <a href="/2015/08/17/9月计划/" title="9月计划" itemprop="url">9月计划</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Deng Changbo" target="_blank" itemprop="author">Deng Changbo</a>
-		
-  <p class="article-time">
-    <time datetime="2015-08-17T08:23:55.000Z" itemprop="datePublished"> 發表於 2015-08-17</time>
-    
-  </p>
-</header>
-    <div class="article-content">
-        
-        <p>9.1 ~ 9.30      早睡早起，方能养生<br>具体内容：</p>
-<ol>
-<li>养成每天晚上11:30睡觉，早上7:30起床的习惯。</li>
-<li>11:00准时进行当前生活状态反思。</li>
-</ol>
-
-        
-        
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/grow-up/">成长记录</a>
-</div>
-
-
-  <div class="article-tags">
+    <a href="/2015/08/31/9月计划/" title="9月计划" itemprop="url">
   
-  <span></span> <a href="/tags/成长计划/">成长计划</a>
-  </div>
-
-</div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-   
+    <h1 itemprop="name">9月计划</h1>
     
-    <article class="post-expand post" itemprop="articleBody"> 
-        <header class="article-info clearfix">
-  <h1 itemprop="name">
+     
+           <p itemprop="description" >9.1 ~ 9.30      早睡早起，方能养生具体内容：
+
+养成每天晚上11:30睡觉，早上7:30起床的习惯。
+11:00准时进行当前生活状态反思。
+
+9.1今天的工作似乎略显无聊，一整天都略微有点浑浑噩噩的，到了下午的时候就已经实在是不想写代码了。
+
+Android学习 </p>
+        
     
-      <a href="/2015/08/17/hello-world/" title="Hello World" itemprop="url">Hello World</a>
-  </h1>
-  <p class="article-author">By
-       
-		<a href="/about" title="Deng Changbo" target="_blank" itemprop="author">Deng Changbo</a>
-		
-  <p class="article-time">
-    <time datetime="2015-08-17T07:33:23.483Z" itemprop="datePublished"> 發表於 2015-08-17</time>
+    <time datetime="2015-08-31T08:23:55.000Z" itemprop="datePublished">2015-08-31</time>
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2015/08/27/Android-List-Adapter/" title="Android List Adapter" itemprop="url">
+  
+    <h1 itemprop="name">Android List Adapter</h1>
     
-  </p>
-</header>
-    <div class="article-content">
+     
+           <p itemprop="description" >Android ListView中的Adapter
+四个重要方法重载
+getView: 在该条item被显示出来的时候调用，用来绘制该条item的具体View的内容
+getCount: 获取当前ListView中的数据条数
+getItem和getItemId：由用户来定义其功能，</p>
         
-        <p>Welcome to <a href="http://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="http://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="http://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick_Start">Quick Start</h2><h3 id="Create_a_new_post">Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run_server">Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate_static_files">Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy_to_remote_sites">Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="http://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+    
+    <time datetime="2015-08-27T03:16:48.000Z" itemprop="datePublished">2015-08-27</time>
+  </a>
+</section>
 
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2015/08/18/Android-LayoutAnimation/" title="Android LayoutAnimation" itemprop="url">
+  
+    <h1 itemprop="name">Android LayoutAnimation</h1>
+    
+     
+           <p itemprop="description" >在使用系统默认的LayoutAnimation时，只需要在Layout中添加属性android:animateLayoutChanges = “true” 即可。
+1234&amp;lt;LinearLayout android:id=&quot;@+id/container&quot;    androi</p>
         
+    
+    <time datetime="2015-08-18T05:41:48.000Z" itemprop="datePublished">2015-08-18</time>
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2015/08/17/Android-自定义View/" title="Android 自定义View" itemprop="url">
+  
+    <h1 itemprop="name">Android 自定义View</h1>
+    
+     
+           <p itemprop="description" >##继承已知Layout（如RelativeLayout和LinearLayout）
+###创建构造函数：
+12345678//该构造函数一般在Java文件中创建控件使用public DefinedView( Context context )&amp;#123;	super( cont</p>
         
-        <p class="article-more-link">
-          
-       </p>
-    </div>
-    <footer class="article-footer clearfix">
-<div class="article-catetags">
+    
+    <time datetime="2015-08-17T08:25:22.000Z" itemprop="datePublished">2015-08-17</time>
+  </a>
+</section>
+
+  <section class="post" itemscope itemprop="blogPost">
+  
+    <a href="/2015/08/17/hello-world/" title="Hello World" itemprop="url">
+  
+    <h1 itemprop="name">Hello World</h1>
+    
+     
+           <p itemprop="description" >Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the </p>
+        
+    
+    <time datetime="2015-08-17T07:33:23.483Z" itemprop="datePublished">2015-08-17</time>
+  </a>
+</section>
 
 
 </div>
-
-
-
-
-<div class="comments-count">
-	
-</div>
-
-</footer>
-
-
-    </article>
-
-
-
-
-
-
-
-</div>
-      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
 <aside class="clearfix">
 
   
 <div class="categorieslist">
-	<p class="asidetitle">分類</p>
+	<p class="asidetitle">Categories</p>
 		<ul>
 		
-		  
-		
-		  
 			<li><a href="/categories/grow-up/" title="成长记录">成长记录<sup>1</sup></a></li>
-		  
 		
-		  
-			<li><a href="/categories/programming/" title="编程笔记">编程笔记<sup>1</sup></a></li>
-		  
+			<li><a href="/categories/programming/" title="编程笔记">编程笔记<sup>2</sup></a></li>
 		
 		</ul>
 </div>
@@ -298,49 +169,21 @@
 
   
 <div class="tagslist">
-	<p class="asidetitle">標簽</p>
+	<p class="asidetitle">Tags</p>
 		<ul class="clearfix">
 		
-			
-				<li><a href="/tags/Android/" title="Android">Android<sup>1</sup></a></li>
-			
+			<li><a href="/tags/Android/" title="Android">Android<sup>2</sup></a></li>
 		
-			
-				<li><a href="/tags/成长计划/" title="成长计划">成长计划<sup>1</sup></a></li>
-			
+			<li><a href="/tags/Animation/" title="Animation">Animation<sup>1</sup></a></li>
 		
-			
-		
-			
+			<li><a href="/tags/成长计划/" title="成长计划">成长计划<sup>1</sup></a></li>
 		
 		</ul>
 </div>
 
 
-  <div class="linkslist">
-  <p class="asidetitle">友情鏈接</p>
-    <ul>
-        
-          <li>
-            
-            	<a href="https://coderq.com" target="_blank" title="一个面向程序员交流分享的新一代社区">码农圈</a>
-            
-          </li>
-        
-          <li>
-            
-            	<a href="http://wuchong.me" target="_blank" title="Jark&#39;s Blog">Jark&#39;s Blog</a>
-            
-          </li>
-        
-    </ul>
-</div>
-
-  
-
-
   <div class="rsspart">
-	<a href="/atom.xml" target="_blank" title="rss">RSS 訂閱</a>
+	<a href="null" target="_blank" title="rss">RSS</a>
 </div>
 
 </aside>
@@ -354,40 +197,21 @@
 	</div>
 	
 	
-	<section class="info">
-		<p> Hello ,I&#39;m Larry Page in Google. <br/>
-			This is my blog,believe it or not.</p>
-	</section>
-	 
-	<div class="social-font" class="clearfix">
-		
-		
-		
-		
-		
+	<div class="social-font clearfix">
 		
 		
 		
 		
 		
 	</div>
-			
+		<p class="copyright">Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/A-limon/pacman" target="_blank" title="Pacman">Pacman</a> © 2015 
 		
-
-		<p class="copyright">
-		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/wuchong/jacman" target="_blank" title="Jacman">Jacman</a> © 2015 
-		
-		<a href="/about" target="_blank" title="Deng Changbo">Deng Changbo</a>
-		
+		<a href="http://yoursite.com" target="_blank" title="Deng Changbo">Deng Changbo</a>
 		
 		</p>
 </div>
 </footer>
-    <script src="/js/jquery-2.0.3.min.js"></script>
-<script src="/js/jquery.imagesloaded.min.js"></script>
-<script src="/js/gallery.js"></script>
-<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
-
+    <script src="/js/jquery-2.1.0.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){ 
   $('.navbar').click(function(){
@@ -405,6 +229,18 @@ $(document).ready(function(){
       a = $('#asidepart'),
       c = $('.closeaside'),
       o = $('.openaside');
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else
+    {
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+        
+    }
+  });
   c.click(function(){
     a.addClass('fadeOut').css('display', 'none');
     o.css('display', 'block').addClass('fadeIn');
@@ -418,18 +254,6 @@ $(document).ready(function(){
   $(window).scroll(function(){
     o.css("top",Math.max(80,260-$(this).scrollTop()));
   });
-  
-  $(window).resize(function(){
-    getSize(); 
-    if (myWidth >= 1024) {
-      $('header nav').removeClass('shownav');
-    }else{
-      m.removeClass('moveMain');
-      a.css('display', 'block').removeClass('fadeOut');
-      o.css('display', 'none');
-        
-    }
-  });
 });
 </script>
 
@@ -438,59 +262,6 @@ $(document).ready(function(){
 
 
 
-
-
-
-
-<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
-<script src="/fancybox/jquery.fancybox.pack.js"></script>
-<script type="text/javascript">
-$(document).ready(function(){ 
-  $('.article-content').each(function(i){
-    $(this).find('img').each(function(){
-      if ($(this).parent().hasClass('fancybox')) return;
-      var alt = this.alt;
-      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
-      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
-    });
-    $(this).find('.fancybox').each(function(){
-      $(this).attr('rel', 'article' + i);
-    });
-  });
-  if($.fancybox){
-    $('.fancybox').fancybox();
-  }
-}); 
-</script>
-
-
-
-<!-- Analytics Begin -->
-
-
-
-
-
-<!-- Analytics End -->
-
-<!-- Totop Begin -->
-
-	<div id="totop">
-	<a title="返回頂部"><img src="/img/scrollup.png"/></a>
-	</div>
-	<script src="/js/totop.js"></script>
-
-<!-- Totop End -->
-
-<!-- MathJax Begin -->
-<!-- mathjax config similar to math.stackexchange -->
-
-
-<!-- MathJax End -->
-
-<!-- Tiny_search Begin -->
-
-<!-- Tiny_search End -->
 
   </body>
  </html>
