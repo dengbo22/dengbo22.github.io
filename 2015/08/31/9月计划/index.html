@@ -41,9 +41,9 @@ Android学习 —— Recycle">
 			
 			<div id="textlogo">
 				<h1 class="site-name"><a href="/" title="Tiny Space">Tiny Space</a></h1>
-				<h2 class="blog-motto">自己的成长记录</h2>
+				<h2 class="blog-motto">立志成为山岭巨人的Tiny</h2>
 			</div>
-			<div class="navbar"><a class="navbutton navmobile" href="#" title="Menu">
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜單">
 			</a></div>
 			<nav class="animated">
 				<ul>
@@ -56,7 +56,7 @@ Android学习 —— Recycle">
 					
 					<form class="search" action="//google.com/search" method="get" accept-charset="utf-8">
 						<label>Search</label>
-						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="Search" />
+						<input type="text" id="search" name="q" autocomplete="off" maxlength="20" placeholder="搜索" />
 						<input type="hidden" name="q" value="site:yoursite.com">
 					</form>
 					
@@ -80,7 +80,7 @@ Android学习 —— Recycle">
     </p>
   <p class="article-time">
     <time datetime="2015-08-31T08:23:55.000Z" itemprop="datePublished">2015-08-31</time>
-    Updated:<time datetime="2015-09-01T15:29:34.855Z" itemprop="dateModified">2015-09-01</time>
+    更新日期:<time datetime="2015-09-06T14:13:05.977Z" itemprop="dateModified">2015-09-06</time>
     
   </p>
 </header>
@@ -88,8 +88,8 @@ Android学习 —— Recycle">
 		
 		
 		<div id="toc" class="toc-article">
-			<strong class="toc-title">Contents</strong>
-		
+			<strong class="toc-title">文章目錄</strong>
+		<ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#9-1"><span class="toc-number">1.</span> <span class="toc-text">9.1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-6"><span class="toc-number">2.</span> <span class="toc-text">9.6</span></a></li></ol>
 		</div>
 		
 		<p>9.1 ~ 9.30      早睡早起，方能养生<br>具体内容：</p>
@@ -97,7 +97,7 @@ Android学习 —— Recycle">
 <li>养成每天晚上11:30睡觉，早上7:30起床的习惯。</li>
 <li>11:00准时进行当前生活状态反思。</li>
 </ol>
-<p>9.1<br>今天的工作似乎略显无聊，一整天都略微有点浑浑噩噩的，到了下午的时候就已经实在是不想写代码了。</p>
+<h2 id="9-1">9.1</h2><p>今天的工作似乎略显无聊，一整天都略微有点浑浑噩噩的，到了下午的时候就已经实在是不想写代码了。</p>
 <blockquote>
 <p>Android学习 —— RecyclerView使用</p>
 </blockquote>
@@ -111,6 +111,27 @@ Android学习 —— Recycle">
 </ul>
 <p>其实今天有好好学习一个SectionGridLayout，即具有Section头的GridLayout，具体原理是检测position并且在Section的地方使用：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">LayoutManager.setSpanSizeLookup( <span class="keyword">new</span> GridLayoutManager.SpanSizeLookup() &#123;</span><br><span class="line">    <span class="annotation">@override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getSpanSize</span><span class="params">(<span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//getSpanCount，获取SpanCount即将其跨度设为一整行</span></span><br><span class="line">        <span class="keyword">return</span> isHeader( position ) ? layoutManager.getSpanCount() : <span class="number">1</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;);</span><br></pre></td></tr></table></figure></p>
 <p>具体的一些细节和巧妙的设计已经不记得了，明天再好好看看，好像跟ItemType有关系。<br>第一天表现不错，明天继续加油～</p>
+<h2 id="9-6">9.6</h2><p>这几天似乎状态都不是很好，一直是属于一种浑浑噩噩的状态，好像没心思去写代码。</p>
+<blockquote>
+<p>Android学习 —— Android 微信登陆<br>大致的步骤是：首先向微信请求注册应用，得到IWXAPI对象，然后通过这个对象在Login界面请求跳转到微信授权界面，在确认授权后，微信将会固定跳转到wxapi.WXEntryActivity这个固定的Activity中并且执行对应的onResp()回调函数。</p>
+</blockquote>
+<ul>
+<li><p>向微信请求注册</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="keyword">static</span> IWXAPI api = <span class="keyword">null</span>;</span><br><span class="line"></span><br><span class="line"><span class="annotation">@override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">()</span> </span>&#123;</span><br><span class="line">	api = WXAPIFactory.createWXAPI(<span class="keyword">this</span>, WxAppId);</span><br><span class="line">	api.registerApp(WxAppId);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>LoginActivity中跳转到微信授权界面</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">SendAuth.Req req = <span class="keyword">new</span> SendAuth.Req();</span><br><span class="line">req.scope = <span class="string">"snsapi_userinfo"</span>;	<span class="comment">//请求用户个人信息</span></span><br><span class="line">app.api.sendReq(req);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建Activity<br>在<strong>项目包名的目录下创建一个wxapi的目录</strong>，并且创建一个名称为WXEntryActivity的Activity。重载<strong>onCreate()</strong>、<strong>onNewIntent()</strong>并且实现<strong>IWXAPIEventHandler</strong>接口中的<strong>onReq(BaseReq)</strong>【用于从微信中启动应用的请求处理】和<strong>onResp(BaseResp)</strong>【用于从微信请求确认登陆后回调执行】。同时在AndroidManifest.xml中注册时设置：android:exported=”true”。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WXEntryActivity</span> <span class="keyword">extends</span> <span class="title">Activity</span> <span class="keyword">implements</span> <span class="title">IWXAPIEventHandler</span> </span>&#123;</span><br><span class="line">	<span class="annotation">@override</span></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(Bundle savedInstranceState)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>.onCreate(savedInstanceState);</span><br><span class="line">		app.api.handleIntent(getIntent(), <span class="keyword">this</span>);</span><br><span class="line">		<span class="comment">//....</span></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="annotation">@override</span></span><br><span class="line">	<span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onNewIntent</span><span class="params">(Intent intent)</span> </span>&#123;</span><br><span class="line">		<span class="keyword">super</span>.onNewIntent(intent);</span><br><span class="line">		<span class="comment">//保存获得的intent,之后getIntent就会获得新的Intent</span></span><br><span class="line">		setIntent(intent);</span><br><span class="line">		app.api.handleIntent(intent, <span class="keyword">this</span>);</span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">	<span class="annotation">@override</span></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResp</span><span class="params">(BaseResp baseResp)</span> </span>&#123;</span><br><span class="line">		<span class="comment">//在应用中用微信登陆主要是这个，就只写这个了</span></span><br><span class="line">		<span class="keyword">switch</span>(baseResp.errCode) &#123;</span><br><span class="line">			<span class="keyword">case</span> BaseResp.ErrorCode.ERR_OK:</span><br><span class="line">				<span class="comment">//执行操作请求</span></span><br><span class="line">(baseResp)</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			<span class="keyword">case</span> BaseResp.ErrorCode.ERR_USER_CANCEL:</span><br><span class="line">			<span class="comment">//用户取消，一般关闭该Activity即可</span></span><br><span class="line">				WXEntryActivity.<span class="keyword">this</span>.finish();</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">			<span class="keyword">case</span> BaseResp.ErrorCode.ERR_AUTH_DENIED:</span><br><span class="line">			<span class="comment">//用户拒绝授权，一般关闭Activity即可</span></span><br><span class="line">				WXEntryActivity.<span class="keyword">this</span>.finish();</span><br><span class="line">				<span class="keyword">break</span>;</span><br><span class="line">		&#125;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>通过在onResp中获取到的baseResp对象提供的code来请求access_token（2小时有效）、refresh_token（30天有效，仅用来请求access_token）以及openId，本处使用volley通讯框架，所以返回的类型是一个Object类型</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">Request</span><span class="params">(BaseResp baseResp)</span> </span>&#123;</span><br><span class="line">	String Url = <span class="string">"https://api.weixin.qq.com/sns/oauth2/access_token?appid="</span>;</span><br><span class="line">	Url += app.WxAppId;</span><br><span class="line">	Url += (<span class="string">"&amp;secret="</span> + app.WxAppKey);</span><br><span class="line">	Url += (<span class="string">"&amp;code="</span> + ((SendAuth.Resp)baseResp).code);</span><br><span class="line">	Url += (<span class="string">"&amp;grant_type=authorization_code"</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResponse</span><span class="params">(Object response)</span> </span>&#123;</span><br><span class="line">	JSONObject json = <span class="keyword">new</span> JSONObject( (String)response);</span><br><span class="line">	String acc_tok = json.getString(<span class="string">"access_token"</span>);</span><br><span class="line">	String frs_tok = json.getString(<span class="string">"refresh_token"</span>);</span><br><span class="line">	String openId = json.getString(<span class="string">"openid"</span>);</span><br><span class="line">	<span class="comment">//构造请求的Url</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>通过获取到的access_tok和openid即可进一步请求到用户的所有数据：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">String url = <span class="string">"https://api.weixin.qq.com/sns/userinfo?"</span>;</span><br><span class="line">url += (<span class="string">"access_token="</span> + acc_tok);</span><br><span class="line">url += (<span class="string">"&amp;openid="</span> + openId);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResponse</span><span class="params">(Object response)</span> </span>&#123;</span><br><span class="line">	JSONObject json = <span class="keyword">new</span> JSONObject( (String) response);</span><br><span class="line">	String nickname = json.getString(<span class="string">"nickname"</span>);</span><br><span class="line">	<span class="keyword">int</span> gender = json.getInt(<span class="string">"sex"</span>);</span><br><span class="line">	String avator = json.getString(<span class="string">"headimgurl"</span>);</span><br><span class="line">	<span class="keyword">final</span> String unionid = json.getString(<span class="string">"unionid"</span>);</span><br><span class="line">	<span class="comment">//后续操作，保存用户信息等</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -130,7 +151,7 @@ Android学习 —— Recycle">
 
 <div class="article-share" id="share">
 
-  <div data-url="http://yoursite.com/2015/08/31/9月计划/" data-title="9月计划 | Tiny Space" data-tsina="null" class="share clearfix">
+  <div data-url="http://yoursite.com/2015/08/31/9月计划/" data-title="9月计划 | Tiny Space" data-tsina="2495587910" class="share clearfix">
   </div>
 
 </div>
@@ -151,21 +172,25 @@ Android学习 —— Recycle">
 </nav>
 
 	
+<section class="comment">
+	<div class="ds-thread"></div>
+</section>
+
 </div>  
-      <div class="openaside"><a class="navbutton" href="#" title="Show Sidebar"></a></div>
+      <div class="openaside"><a class="navbutton" href="#" title="顯示側邊欄"></a></div>
 
   <div id="toc" class="toc-aside">
-  <strong class="toc-title">Contents</strong>
-  
+  <strong class="toc-title">文章目錄</strong>
+  <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#9-1"><span class="toc-number">1.</span> <span class="toc-text">9.1</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-6"><span class="toc-number">2.</span> <span class="toc-text">9.6</span></a></li></ol>
   </div>
 
 <div id="asidepart">
-<div class="closeaside"><a class="closebutton" href="#" title="Hide Sidebar"></a></div>
+<div class="closeaside"><a class="closebutton" href="#" title="隱藏側邊欄"></a></div>
 <aside class="clearfix">
 
   
 <div class="categorieslist">
-	<p class="asidetitle">Categories</p>
+	<p class="asidetitle">分類</p>
 		<ul>
 		
 			<li><a href="/categories/grow-up/" title="成长记录">成长记录<sup>1</sup></a></li>
@@ -178,7 +203,7 @@ Android学习 —— Recycle">
 
   
 <div class="tagslist">
-	<p class="asidetitle">Tags</p>
+	<p class="asidetitle">標簽</p>
 		<ul class="clearfix">
 		
 			<li><a href="/tags/Android/" title="Android">Android<sup>2</sup></a></li>
@@ -192,7 +217,7 @@ Android学习 —— Recycle">
 
 
   <div class="rsspart">
-	<a href="null" target="_blank" title="rss">RSS</a>
+	<a href="null" target="_blank" title="rss">RSS 訂閱</a>
 </div>
 
 </aside>
@@ -206,9 +231,18 @@ Android学习 —— Recycle">
 	</div>
 	
 	
+	<section class="info">
+		<p> 精英信仰者 <br/>
+			言念君子，温其如玉</p>
+	</section>
+	 
 	<div class="social-font clearfix">
 		
+		<a href="http://weibo.com/http://weibo.com/2495587910" target="_blank" title="weibo"></a>
 		
+		
+		
+		<a href="https://github.com/https://github.com/dengbo22" target="_blank" title="github"></a>
 		
 		
 		
@@ -329,6 +363,18 @@ $(document).ready(function(){
 });     
 </script>
 
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"tiny"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = '//static.duoshuo.com/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
 
 
 
