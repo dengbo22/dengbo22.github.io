@@ -284,6 +284,20 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">String url = <span class="string">"https://api.weixin.qq.com/sns/userinfo?"</span>;</span><br><span class="line">url += (<span class="string">"access_token="</span> + acc_tok);</span><br><span class="line">url += (<span class="string">"&amp;openid="</span> + openId);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onResponse</span><span class="params">(Object response)</span> </span>&#123;</span><br><span class="line">	JSONObject json = <span class="keyword">new</span> JSONObject( (String) response);</span><br><span class="line">	String nickname = json.getString(<span class="string">"nickname"</span>);</span><br><span class="line">	<span class="keyword">int</span> gender = json.getInt(<span class="string">"sex"</span>);</span><br><span class="line">	String avator = json.getString(<span class="string">"headimgurl"</span>);</span><br><span class="line">	<span class="keyword">final</span> String unionid = json.getString(<span class="string">"unionid"</span>);</span><br><span class="line">	<span class="comment">//后续操作，保存用户信息等</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
+<h2 id="9-12">9.12</h2><p>这几天代码的内容好像都比较简单，似乎一直都在复制粘贴复制粘贴，没有太多实质性的进步，感觉方向不大对劲，不是往自己想要的方向发展，切记要谨慎，时刻记住自己的方向。多去研究研究自己之前用到的项目源码。</p>
+<blockquote>
+<p>逻辑思维 —— 只有一种人能改写历史</p>
+</blockquote>
+<ul>
+<li>核心在于，成为结构洞，成为一个结构和另一个结构黏合的人。不断的去尝试对已有的进行小幅度的颠覆。（我觉得颠覆应该只是对可见的不合理进行小幅度的颠覆，而并非什么都要进行颠覆）。同时对资源抱有谨慎的态度，拥有资源但是却不过度的迷信拥有的资源。</li>
+</ul>
+<blockquote>
+<p>总归到底两句话：</p>
+<ol>
+<li>什么资本他都应该有一点，但是什么资本都不是他唯一的依靠</li>
+<li>什么规则他心里都有，但什么规则对他来说都不是牢不可破的天条。</li>
+</ol>
+</blockquote>
 </span>
         
       
