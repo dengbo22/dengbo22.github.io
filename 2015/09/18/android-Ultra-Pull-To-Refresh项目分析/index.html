@@ -32,7 +32,7 @@
 
 
 
-  <meta name="keywords" content="Android,Animation," />
+  <meta name="keywords" content="Android,Project," />
 
 
 
@@ -43,25 +43,34 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="在使用系统默认的LayoutAnimation时，只需要在Layout中添加属性android:animateLayoutChanges = “true” 即可。
-1234&amp;lt;LinearLayout android:id=&quot;@+id/container&quot;    android:animateLayoutChanges=&quot;true&quot;    .../&amp;gt;
+<meta name="description" content="dispatchTouchEvent()函数内部：Action_Down:
 
-自定义LayoutAnimatio">
+自己的处理步骤：
+
+
+初始化mHasSendCancelEvent 为false，表示此时PtrFrameLayout未发送ACTION_CANCEL，此时的ACTION动作由PtrFrameLayout的子View来响应。
+设置Indicator状态：mIsUnderTouch 为true，保存当前按下的位置为mPtL">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android LayoutAnimation">
-<meta property="og:url" content="http://yoursite.com/2015/08/18/Android-LayoutAnimation/index.html">
+<meta property="og:title" content="android Ultra-Pull-To-Refresh项目分析">
+<meta property="og:url" content="http://yoursite.com/2015/09/18/android-Ultra-Pull-To-Refresh项目分析/index.html">
 <meta property="og:site_name" content="Tiny Space">
-<meta property="og:description" content="在使用系统默认的LayoutAnimation时，只需要在Layout中添加属性android:animateLayoutChanges = “true” 即可。
-1234&amp;lt;LinearLayout android:id=&quot;@+id/container&quot;    android:animateLayoutChanges=&quot;true&quot;    .../&amp;gt;
+<meta property="og:description" content="dispatchTouchEvent()函数内部：Action_Down:
 
-自定义LayoutAnimatio">
-<meta property="og:updated_time" content="2015-09-12T16:51:11.011Z">
+自己的处理步骤：
+
+
+初始化mHasSendCancelEvent 为false，表示此时PtrFrameLayout未发送ACTION_CANCEL，此时的ACTION动作由PtrFrameLayout的子View来响应。
+设置Indicator状态：mIsUnderTouch 为true，保存当前按下的位置为mPtL">
+<meta property="og:updated_time" content="2015-09-18T12:18:03.200Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android LayoutAnimation">
-<meta name="twitter:description" content="在使用系统默认的LayoutAnimation时，只需要在Layout中添加属性android:animateLayoutChanges = “true” 即可。
-1234&amp;lt;LinearLayout android:id=&quot;@+id/container&quot;    android:animateLayoutChanges=&quot;true&quot;    .../&amp;gt;
+<meta name="twitter:title" content="android Ultra-Pull-To-Refresh项目分析">
+<meta name="twitter:description" content="dispatchTouchEvent()函数内部：Action_Down:
 
-自定义LayoutAnimatio">
+自己的处理步骤：
+
+
+初始化mHasSendCancelEvent 为false，表示此时PtrFrameLayout未发送ACTION_CANCEL，此时的ACTION动作由PtrFrameLayout的子View来响应。
+设置Indicator状态：mIsUnderTouch 为true，保存当前按下的位置为mPtL">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -71,7 +80,7 @@
   };
 </script>
 
-  <title> Android LayoutAnimation | Tiny Space </title>
+  <title> android Ultra-Pull-To-Refresh项目分析 | Tiny Space </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zn-CN">
@@ -186,7 +195,7 @@
           
           
             
-              Android LayoutAnimation
+              android Ultra-Pull-To-Refresh项目分析
             
           
         </h1>
@@ -195,8 +204,8 @@
       <div class="post-meta">
         <span class="post-time">
           發表於
-          <time itemprop="dateCreated" datetime="2015-08-18T13:41:48+08:00" content="2015-08-18">
-            2015-08-18
+          <time itemprop="dateCreated" datetime="2015-09-18T00:27:40+08:00" content="2015-09-18">
+            2015-09-18
           </time>
         </span>
 
@@ -229,28 +238,42 @@
       
 
       
-        <span itemprop="articleBody"><ul>
-<li><p>在使用系统默认的LayoutAnimation时，只需要在Layout中添加属性android:animateLayoutChanges = “true” 即可。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">LinearLayout</span> <span class="attribute">android:id</span>=<span class="value">"@+id/container"</span></span><br><span class="line">    <span class="attribute">android:animateLayoutChanges</span>=<span class="value">"true"</span></span><br><span class="line">    <span class="attribute">...</span></span><br><span class="line">/&gt;</span></span><br></pre></td></tr></table></figure>
+        <span itemprop="articleBody"><p>dispatchTouchEvent()函数内部：<br>Action_Down:</p>
+<ul>
+<li>自己的处理步骤：</li>
+</ul>
+<ol>
+<li>初始化mHasSendCancelEvent 为false，表示此时PtrFrameLayout未发送ACTION_CANCEL，此时的ACTION动作由PtrFrameLayout的子View来响应。</li>
+<li>设置Indicator状态：mIsUnderTouch 为true，保存当前按下的位置为mPtLastMove，<strong>mPressedPos设置为mCurrentPos</strong>。</li>
+<li>查看ScrollChecker的状态，如果正在执行则终止任务。</li>
+</ol>
+<ul>
+<li>分发给子View：<br>ACTION_DOWN事件仍将分发给其内部的子View，从而子View也可以响应其他事件，而在当父控件开始响应到下拉操作时，PtrFrameLayout将会发送一个ACTION_CANCEL事件打断内部View对后续事件的响应。</li>
+</ul>
+<p>Action_Move：</p>
+<ul>
+<li><p>在PtrIndicator中保存滑动的逻辑和状态</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//将这次的事件保存起来</span></span><br><span class="line">mLastMoveEvent = e</span><br><span class="line"></span><br><span class="line"><span class="comment">//通过上一次的位置保存offsetX和offsetY。</span></span><br><span class="line"><span class="comment">//并且调用processOnMove计算出mHeaderView和mContentView需要进行的位移（阻滞系数）</span></span><br><span class="line">mPtrIndicator.onMove()</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>自定义LayoutAnimation</p>
+<li><p>判断不执行下拉刷新的情况</p>
 </li>
 </ul>
 <ol>
-<li><p>创建LayoutTransition对象</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">LayoutTransition mTransition = <span class="keyword">new</span> LayoutTransition();</span><br><span class="line">container.setLayoutTransition(mTransition);</span><br></pre></td></tr></table></figure>
+<li><p>检查是否设置水平移动禁用模式</p>
+<blockquote>
+<p>通过<strong>disableWhenHorizontalMove(boolean disable)</strong>函数来设置，主要用于当子View中存在水平监听响应的控件（如ViewPager）时，启动该选项，那么此时则会检测当前的位移情况，如果此时PtrFrameLayout是未滑动的状态，此时不执行下拉刷新，而通过父类的dispatchTouchEvent()将事件传递给mContentView的子类中。</p>
+</blockquote>
 </li>
-<li><p>设定LayoutTransition的动画内容，包括</p>
+<li><p>检查下拉状态</p>
+<blockquote>
+<p>在移动状态为moveDown时，检测mPtrHandler的状态，调用checkCanDoRefresh()判断，如果此时是不可进行下拉刷新的，则也通过父类的dispatchTouchEvent()将事件传递给mContentView的子类中。</p>
+</blockquote>
 </li>
 </ol>
 <ul>
-<li>APPEARING—— 此View在Layout中出现时，<strong>此View需要执行的动画</strong>。</li>
-<li>CHANGE_APPEADING——当一个View在Layout中出现时，此View对其他View位置造成影响，从而<strong>其他View需要执行的动画</strong></li>
-<li>DISAPPEARING—— 此View在Layout中消失时，<strong>此View需要执行的动画</strong>。</li>
-<li>CHANGE_DISAPPEARING——当一个View在Layout中消失时，这个View将对其他View的位置造成影响，从而<strong>其他View需要执行的动画</strong><br><strong>Ps: 在上文所述的默认情况下DISAPPEARING和CHANGE_DISAPPEARING都是立即开始，没有动画的。</strong><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//设置CHANGE_APPEARING,使用已有的动画</span></span><br><span class="line">mTransition.setAnimator(LayoutTransition.CHANGE_APPEARING, mTransition.getAnimator(LayoutTransition.CHANGE_APPEARING));</span><br><span class="line"><span class="comment">//设置APPEARING，不使用动画		</span></span><br><span class="line">mTransition.setAnimator(LayoutTransition.APPEARING,<span class="keyword">null</span>);</span><br><span class="line"><span class="comment">//设置DISAPPEARING，使用自定义的动画	</span></span><br><span class="line">mTransition.setAnimator(LayoutTransition.DISAPPEARING, 自定义的Animator );</span><br><span class="line"><span class="comment">//设置CHANGE_DISAPPEARING,不适用动画	</span></span><br><span class="line">transition.setAnimator(LayoutTransition.CHANGE_DISAPPEARING, <span class="keyword">null</span>);</span><br><span class="line"><span class="comment">//将LayoutTransition设置给对应的Layout</span></span><br><span class="line">container.setLayoutTransition(transition);</span><br></pre></td></tr></table></figure>
+<li>如果以上两种状态均不满足，获取当前的运行状态<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">boolean</span> moveDown = offsetY &gt; <span class="number">0</span>;</span><br><span class="line"><span class="keyword">boolean</span> moveUp = !moveDown;</span><br><span class="line"><span class="comment">//即判断当前的位置是否是开始的位置</span></span><br><span class="line"><span class="keyword">boolean</span> canMoveUp = mPtrIndicator.hasLeftStartPosition() </span><br><span class="line"><span class="keyword">if</span>(( moveUp &amp;&amp; canMoveUp) || moveDown) &#123;</span><br><span class="line">	movePos( offsetY );</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">true</span>;   <span class="comment">//表示事件已经被处理</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<p>参考资料：<br><a href="http://blog.csdn.net/lmj623565791/article/details/38092093" target="_blank" rel="external">http://blog.csdn.net/lmj623565791/article/details/38092093</a> ——《Android 属性动画（Property Animation） 完全解析 （下）》</p>
 </span>
       
     </div>
@@ -261,7 +284,7 @@
           
             <a href="/tags/Android/" rel="tag">#Android</a>
           
-            <a href="/tags/Animation/" rel="tag">#Animation</a>
+            <a href="/tags/Project/" rel="tag">#Project</a>
           
         </div>
       
@@ -270,13 +293,13 @@
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/08/27/Android-List-Adapter/" rel="prev">Android List Adapter</a>
+              <a href="/2015/09/19/Android的View绘制过程/" rel="prev">Android的View绘制过程</a>
             
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/08/17/Android-自定义View/" rel="next">Android 自定义View</a>
+              <a href="/2015/08/31/9月计划/" rel="next">9月计划</a>
             
           </div>
         </div>
