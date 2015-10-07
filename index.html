@@ -178,6 +178,159 @@
           
           
             
+              <a class="post-title-link" href="/2015/10/07/Ubuntu下的Sublime安装/" itemprop="url">
+                Ubuntu下的Sublime安装
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          發表於
+          <time itemprop="dateCreated" datetime="2015-10-07T17:30:50+08:00" content="2015-10-07">
+            2015-10-07
+          </time>
+        </span>
+
+        
+
+        
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><h2 id="安装：">安装：</h2><p>使用apt安装(sublime-text-2)<br>sudo add-apt-repository ppa:webupd8team/sublime-text-2<br>sudo apt-get update<br>sudo apt-get install sublime-text</p>
+<h2 id="添加包管理工具">添加包管理工具</h2><ul>
+<li><p>Sublime-Text-2<br>按下`ctrl + ``来打开Sublime Text Console，输入一下代码：</p>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib2,os,hashlib;</span><br><span class="line">h = <span class="string">'2915d1851351e5ee549c20394736b442'</span> + <span class="string">'8bc59f460fa1548d1514676163dafc88'</span>;</span><br><span class="line">pf = <span class="string">'Package Control.sublime-package'</span>;</span><br><span class="line">ipp = sublime<span class="built_in">.</span>installed_packages_path();</span><br><span class="line">os<span class="built_in">.</span>makedirs( ipp  ) <span class="keyword">if</span> <span class="subst">not</span> os<span class="built_in">.</span>path<span class="built_in">.</span>exists(ipp) <span class="keyword">else</span> <span class="literal">None</span>;</span><br><span class="line">urllib2<span class="built_in">.</span>install_opener( urllib2<span class="built_in">.</span>build_opener( urllib2<span class="built_in">.</span>ProxyHandler() )  );</span><br><span class="line"><span class="keyword">by</span> = urllib2<span class="built_in">.</span>urlopen( <span class="string">'http://packagecontrol.io/'</span> + pf<span class="built_in">.</span>replace(<span class="string">' '</span>, <span class="string">'%20'</span>) )<span class="built_in">.</span>read();</span><br><span class="line">dh = hashlib<span class="built_in">.</span>sha256(<span class="keyword">by</span>)<span class="built_in">.</span>hexdigest();</span><br><span class="line">open( os<span class="built_in">.</span>path<span class="built_in">.</span><span class="keyword">join</span>( ipp, pf ), <span class="string">'wb'</span>  )<span class="built_in">.</span>write(<span class="keyword">by</span>) <span class="keyword">if</span> dh == h <span class="keyword">else</span> <span class="literal">None</span>;</span><br><span class="line">print(<span class="string">'Error validating download (got %s instead of %s), please try manual install'</span> % (dh, h) </span><br><span class="line"><span class="keyword">if</span> dh != h <span class="keyword">else</span> <span class="string">'Please restart Sublime Text to finish installation'</span>)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>Sublime Text 3<br>同样，按下`ctrl + ``来打开Sublime Text Console后，输入一下代码：</p>
+<figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">import</span> urllib.request,os,hashlib;</span><br><span class="line">h = '<span class="number">2915</span>d1851351e5ee549c20394736b442' + '<span class="number">8</span>bc59f460fa1548d1514676163dafc88';</span><br><span class="line">pf = 'Package Control.sublime-package';</span><br><span class="line">ipp = sublime.installed_packages_path<span class="params">()</span>;</span><br><span class="line">urllib.request.install_opener<span class="params">( urllib.request.build_opener<span class="params">( urllib.request.ProxyHandler<span class="params">()</span> )</span>  )</span>;</span><br><span class="line">by = urllib.request.urlopen<span class="params">( 'http://packagecontrol.io/' + pf.replace<span class="params">(' ', '%<span class="number">20</span>')</span> )</span>.read<span class="params">()</span>;</span><br><span class="line">dh = hashlib.sha256<span class="params">(by)</span>.hexdigest<span class="params">()</span>;</span><br><span class="line">print<span class="params">('Error validating download <span class="params">(got %s instead of %s)</span>, please try manual install' % <span class="params">(dh, h)</span>)</span></span><br><span class="line"><span class="keyword">if</span> dh <span class="built_in">!</span>= h <span class="keyword">else</span> open<span class="params">(os.path.join<span class="params">( ipp, pf )</span>, 'wb' )</span>.write<span class="params">(by)</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="使用包管理工具安装插件">使用包管理工具安装插件</h2></span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
+              <a class="post-title-link" href="/2015/10/04/10月计划/" itemprop="url">
+                10月计划
+              </a>
+            
+          
+        </h1>
+      
+
+      <div class="post-meta">
+        <span class="post-time">
+          發表於
+          <time itemprop="dateCreated" datetime="2015-10-04T10:44:19+08:00" content="2015-10-04">
+            2015-10-04
+          </time>
+        </span>
+
+        
+
+        
+          
+        
+      </div>
+    </header>
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <span itemprop="articleBody"><h1 id="10-1_~_10-31_三省吾身">10.1 ~ 10.31        三省吾身</h1><p>具体内容：<br>每天晚上睡觉前反省自己每天做了什么，并对自己的生活状态进行A/B/C/D/E评级打分。生活状态主要包括几个方面：</p>
+<ol>
+<li>自己的专业水平有没有得到提升。</li>
+<li>自己英语的各个方面水平有没有得到锻炼</li>
+<li>有没有能够好好的锻炼身体</li>
+<li>大概浪费了多少时间在不应该浪费的事情上（浪费计时）</li>
+<li>晚上的睡眠时间和早上的起床时间<br>根据以上5点对自己的生活状态评分，愿自己不断成长，配得上自己的野心。</li>
+</ol>
+<h2 id="10-6">10.6</h2><ul>
+<li>今天一天似乎都在看专业有关的东西，主要是关于操作系统课程设计的关于UI设计有关的知识，总体情况一般，收获非常少</li>
+<li>英语就不提了，早上起床那么晚根本就没有好好看一下英语或者练习一下英语</li>
+<li>锻炼身体还是有的，晚上7:00~9:00打羽毛球锻炼身体</li>
+<li>时间浪费大约是2个小时左右（看游戏视频）</li>
+<li>早上起床时间:10:00，晚上睡觉时间12:00<br>评分C等，可能是因为现在是放假期间，整个工作效率都不高，而且好像事情太多反而没有办法一件一件的做好。<br>所以接下来很有必要把明天的To-do List写好，每天一项一项的去完成，免得自己的生活一片混乱</li>
+</ul>
+<h2 id="10-7">10.7</h2><ul>
+<li>今天差不多都是按照计划在走，虽然每个计划完成都比较有缺陷，但是好在都有在做。</li>
+<li>英语早上起来的时候有看2篇文章并且在晚上回来有背记单词（进步）</li>
+<li>锻炼身体方面相比于昨天有所退步，但是仍然还有有所锻炼，33分钟内环</li>
+<li>时间浪费未统计，但是大约也是2个小时左右</li>
+<li>早上起床时间9:30，晚上睡觉事件12:00<br>评分C+等，相比于昨天很明显是有进步的，有事情有目的的工作还是相比于昨天毫无目的的在做事情效率提高了很多。虽然其实每一项都完成得不是很好，大约每一项都只是完成了50%~80%的样子，但是感觉还是很不错。明天上课，继续加油～</li>
+</ul>
+</span>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <header class="post-header">
+
+      
+      
+        <h1 class="post-title" itemprop="name headline">
+          
+          
+            
               <a class="post-title-link" href="/2015/09/23/Android屏幕适配/" itemprop="url">
                 Android屏幕适配
               </a>
@@ -263,6 +416,7 @@
 <li>对于FrameLayout而言，内部控件放置类似于LinearLayout，而PercentRelatvieLayout与RelativeLayout类似</li>
 </ul>
 </blockquote>
+<p>参考资料：<br><a href="http://blog.csdn.net/lmj623565791/article/details/46695347" target="_blank" rel="external">http://blog.csdn.net/lmj623565791/article/details/46695347</a></p>
 </span>
         
       
@@ -519,11 +673,7 @@
 
       
         
-          <span itemprop="articleBody"><p>9.1 ~ 9.30      早睡早起，方能养生<br>具体内容：</p>
-<ol>
-<li>养成每天晚上11:30睡觉，早上7:30起床的习惯。</li>
-<li>11:00准时进行当前生活状态反思。</li>
-</ol>
+          <span itemprop="articleBody"><p>9.1 ~ 9.30      早睡早起，方能养生<br>具体内容：<br>养成每天晚上11:30睡觉，早上7:30起床的习惯。</p>
 <h2 id="9-1">9.1</h2><p>今天的工作似乎略显无聊，一整天都略微有点浑浑噩噩的，到了下午的时候就已经实在是不想写代码了。</p>
 <blockquote>
 <p>Android学习 —— RecyclerView使用</p>
@@ -593,6 +743,11 @@
 <li>什么规则他心里都有，但什么规则对他来说都不是牢不可破的天条。</li>
 </ol>
 </blockquote>
+<h2 id="计划总结">计划总结</h2><p>9月计划算是失败了，但是还是有收获的，至少还是对自己做计划有了一定的了解。</p>
+<ol>
+<li>以后做类似的计划时不再进行类似的技术写入，其实会让自己的计划显得有点混乱。</li>
+<li>做计划的话还是需要时常去反思，很有必要将下一个计划列出来。</li>
+</ol>
 </span>
         
       
@@ -920,7 +1075,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">7</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">文章</span>
             </a>
           </div>

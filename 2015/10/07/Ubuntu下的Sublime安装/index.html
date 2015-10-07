@@ -32,7 +32,7 @@
 
 
 
-  <meta name="keywords" content="Android,Project," />
+  <meta name="keywords" content="Hexo,next" />
 
 
 
@@ -43,34 +43,25 @@
   <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
 
 
-<meta name="description" content="dispatchTouchEvent()函数内部：Action_Down:
-
-自己的处理步骤：
-
-
-初始化mHasSendCancelEvent 为false，表示此时PtrFrameLayout未发送ACTION_CANCEL，此时的ACTION动作由PtrFrameLayout的子View来响应。
-设置Indicator状态：mIsUnderTouch 为true，保存当前按下的位置为mPtL">
+<meta name="description" content="安装：使用apt安装(sublime-text-2)sudo add-apt-repository ppa:webupd8team/sublime-text-2sudo apt-get updatesudo apt-get install sublime-text
+添加包管理工具
+Sublime-Text-2按下`ctrl + ``来打开Sublime Text Console，输入一下代码：
+1">
 <meta property="og:type" content="article">
-<meta property="og:title" content="android Ultra-Pull-To-Refresh项目分析">
-<meta property="og:url" content="http://yoursite.com/2015/09/18/android-Ultra-Pull-To-Refresh项目分析/index.html">
+<meta property="og:title" content="Ubuntu下的Sublime安装">
+<meta property="og:url" content="http://yoursite.com/2015/10/07/Ubuntu下的Sublime安装/index.html">
 <meta property="og:site_name" content="Tiny Space">
-<meta property="og:description" content="dispatchTouchEvent()函数内部：Action_Down:
-
-自己的处理步骤：
-
-
-初始化mHasSendCancelEvent 为false，表示此时PtrFrameLayout未发送ACTION_CANCEL，此时的ACTION动作由PtrFrameLayout的子View来响应。
-设置Indicator状态：mIsUnderTouch 为true，保存当前按下的位置为mPtL">
-<meta property="og:updated_time" content="2015-09-18T12:18:03.200Z">
+<meta property="og:description" content="安装：使用apt安装(sublime-text-2)sudo add-apt-repository ppa:webupd8team/sublime-text-2sudo apt-get updatesudo apt-get install sublime-text
+添加包管理工具
+Sublime-Text-2按下`ctrl + ``来打开Sublime Text Console，输入一下代码：
+1">
+<meta property="og:updated_time" content="2015-10-07T15:52:27.489Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="android Ultra-Pull-To-Refresh项目分析">
-<meta name="twitter:description" content="dispatchTouchEvent()函数内部：Action_Down:
-
-自己的处理步骤：
-
-
-初始化mHasSendCancelEvent 为false，表示此时PtrFrameLayout未发送ACTION_CANCEL，此时的ACTION动作由PtrFrameLayout的子View来响应。
-设置Indicator状态：mIsUnderTouch 为true，保存当前按下的位置为mPtL">
+<meta name="twitter:title" content="Ubuntu下的Sublime安装">
+<meta name="twitter:description" content="安装：使用apt安装(sublime-text-2)sudo add-apt-repository ppa:webupd8team/sublime-text-2sudo apt-get updatesudo apt-get install sublime-text
+添加包管理工具
+Sublime-Text-2按下`ctrl + ``来打开Sublime Text Console，输入一下代码：
+1">
 
 
 <script type="text/javascript" id="hexo.configuration">
@@ -80,7 +71,7 @@
   };
 </script>
 
-  <title> android Ultra-Pull-To-Refresh项目分析 | Tiny Space </title>
+  <title> Ubuntu下的Sublime安装 | Tiny Space </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zn-CN">
@@ -195,7 +186,7 @@
           
           
             
-              android Ultra-Pull-To-Refresh项目分析
+              Ubuntu下的Sublime安装
             
           
         </h1>
@@ -204,26 +195,11 @@
       <div class="post-meta">
         <span class="post-time">
           發表於
-          <time itemprop="dateCreated" datetime="2015-09-18T00:27:40+08:00" content="2015-09-18">
-            2015-09-18
+          <time itemprop="dateCreated" datetime="2015-10-07T17:30:50+08:00" content="2015-10-07">
+            2015-10-07
           </time>
         </span>
 
-        
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分類於
-            
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/编程学习/" itemprop="url" rel="index">
-                  <span itemprop="name">编程学习</span>
-                </a>
-              </span>
-
-              
-              
-
-            
-          </span>
         
 
         
@@ -238,68 +214,31 @@
       
 
       
-        <span itemprop="articleBody"><p>dispatchTouchEvent()函数内部：<br>Action_Down:</p>
-<ul>
-<li>自己的处理步骤：</li>
-</ul>
-<ol>
-<li>初始化mHasSendCancelEvent 为false，表示此时PtrFrameLayout未发送ACTION_CANCEL，此时的ACTION动作由PtrFrameLayout的子View来响应。</li>
-<li>设置Indicator状态：mIsUnderTouch 为true，保存当前按下的位置为mPtLastMove，<strong>mPressedPos设置为mCurrentPos</strong>。</li>
-<li>查看ScrollChecker的状态，如果正在执行则终止任务。</li>
-</ol>
-<ul>
-<li>分发给子View：<br>ACTION_DOWN事件仍将分发给其内部的子View，从而子View也可以响应其他事件，而在当父控件开始响应到下拉操作时，PtrFrameLayout将会发送一个ACTION_CANCEL事件打断内部View对后续事件的响应。</li>
-</ul>
-<p>Action_Move：</p>
-<ul>
-<li><p>在PtrIndicator中保存滑动的逻辑和状态</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//将这次的事件保存起来</span></span><br><span class="line">mLastMoveEvent = e</span><br><span class="line"></span><br><span class="line"><span class="comment">//通过上一次的位置保存offsetX和offsetY。</span></span><br><span class="line"><span class="comment">//并且调用processOnMove计算出mHeaderView和mContentView需要进行的位移（阻滞系数）</span></span><br><span class="line">mPtrIndicator.onMove()</span><br></pre></td></tr></table></figure>
+        <span itemprop="articleBody"><h2 id="安装：">安装：</h2><p>使用apt安装(sublime-text-2)<br>sudo add-apt-repository ppa:webupd8team/sublime-text-2<br>sudo apt-get update<br>sudo apt-get install sublime-text</p>
+<h2 id="添加包管理工具">添加包管理工具</h2><ul>
+<li><p>Sublime-Text-2<br>按下`ctrl + ``来打开Sublime Text Console，输入一下代码：</p>
+<figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib2,os,hashlib;</span><br><span class="line">h = <span class="string">'2915d1851351e5ee549c20394736b442'</span> + <span class="string">'8bc59f460fa1548d1514676163dafc88'</span>;</span><br><span class="line">pf = <span class="string">'Package Control.sublime-package'</span>;</span><br><span class="line">ipp = sublime<span class="built_in">.</span>installed_packages_path();</span><br><span class="line">os<span class="built_in">.</span>makedirs( ipp  ) <span class="keyword">if</span> <span class="subst">not</span> os<span class="built_in">.</span>path<span class="built_in">.</span>exists(ipp) <span class="keyword">else</span> <span class="literal">None</span>;</span><br><span class="line">urllib2<span class="built_in">.</span>install_opener( urllib2<span class="built_in">.</span>build_opener( urllib2<span class="built_in">.</span>ProxyHandler() )  );</span><br><span class="line"><span class="keyword">by</span> = urllib2<span class="built_in">.</span>urlopen( <span class="string">'http://packagecontrol.io/'</span> + pf<span class="built_in">.</span>replace(<span class="string">' '</span>, <span class="string">'%20'</span>) )<span class="built_in">.</span>read();</span><br><span class="line">dh = hashlib<span class="built_in">.</span>sha256(<span class="keyword">by</span>)<span class="built_in">.</span>hexdigest();</span><br><span class="line">open( os<span class="built_in">.</span>path<span class="built_in">.</span><span class="keyword">join</span>( ipp, pf ), <span class="string">'wb'</span>  )<span class="built_in">.</span>write(<span class="keyword">by</span>) <span class="keyword">if</span> dh == h <span class="keyword">else</span> <span class="literal">None</span>;</span><br><span class="line">print(<span class="string">'Error validating download (got %s instead of %s), please try manual install'</span> % (dh, h) </span><br><span class="line"><span class="keyword">if</span> dh != h <span class="keyword">else</span> <span class="string">'Please restart Sublime Text to finish installation'</span>)</span><br></pre></td></tr></table></figure>
 </li>
-<li><p>判断不执行下拉刷新的情况</p>
+<li><p>Sublime Text 3<br>同样，按下`ctrl + ``来打开Sublime Text Console后，输入一下代码：</p>
+<figure class="highlight openscad"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">import</span> urllib.request,os,hashlib;</span><br><span class="line">h = '<span class="number">2915</span>d1851351e5ee549c20394736b442' + '<span class="number">8</span>bc59f460fa1548d1514676163dafc88';</span><br><span class="line">pf = 'Package Control.sublime-package';</span><br><span class="line">ipp = sublime.installed_packages_path<span class="params">()</span>;</span><br><span class="line">urllib.request.install_opener<span class="params">( urllib.request.build_opener<span class="params">( urllib.request.ProxyHandler<span class="params">()</span> )</span>  )</span>;</span><br><span class="line">by = urllib.request.urlopen<span class="params">( 'http://packagecontrol.io/' + pf.replace<span class="params">(' ', '%<span class="number">20</span>')</span> )</span>.read<span class="params">()</span>;</span><br><span class="line">dh = hashlib.sha256<span class="params">(by)</span>.hexdigest<span class="params">()</span>;</span><br><span class="line">print<span class="params">('Error validating download <span class="params">(got %s instead of %s)</span>, please try manual install' % <span class="params">(dh, h)</span>)</span></span><br><span class="line"><span class="keyword">if</span> dh <span class="built_in">!</span>= h <span class="keyword">else</span> open<span class="params">(os.path.join<span class="params">( ipp, pf )</span>, 'wb' )</span>.write<span class="params">(by)</span></span><br></pre></td></tr></table></figure>
 </li>
 </ul>
-<ol>
-<li><p>检查是否设置水平移动禁用模式</p>
-<blockquote>
-<p>通过<strong>disableWhenHorizontalMove(boolean disable)</strong>函数来设置，主要用于当子View中存在水平监听响应的控件（如ViewPager）时，启动该选项，那么此时则会检测当前的位移情况，如果此时PtrFrameLayout是未滑动的状态，此时不执行下拉刷新，而通过父类的dispatchTouchEvent()将事件传递给mContentView的子类中。</p>
-</blockquote>
-</li>
-<li><p>检查下拉状态</p>
-<blockquote>
-<p>在移动状态为moveDown时，检测mPtrHandler的状态，调用checkCanDoRefresh()判断，如果此时是不可进行下拉刷新的，则也通过父类的dispatchTouchEvent()将事件传递给mContentView的子类中。</p>
-</blockquote>
-</li>
-</ol>
-<ul>
-<li>如果以上两种状态均不满足，获取当前的运行状态<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">boolean</span> moveDown = offsetY &gt; <span class="number">0</span>;</span><br><span class="line"><span class="keyword">boolean</span> moveUp = !moveDown;</span><br><span class="line"><span class="comment">//即判断当前的位置是否是开始的位置</span></span><br><span class="line"><span class="keyword">boolean</span> canMoveUp = mPtrIndicator.hasLeftStartPosition() </span><br><span class="line"><span class="keyword">if</span>(( moveUp &amp;&amp; canMoveUp) || moveDown) &#123;</span><br><span class="line">	movePos( offsetY );</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">true</span>;   <span class="comment">//表示事件已经被处理</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-</span>
+<h2 id="使用包管理工具安装插件">使用包管理工具安装插件</h2></span>
       
     </div>
 
     <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/Android/" rel="tag">#Android</a>
-          
-            <a href="/tags/Project/" rel="tag">#Project</a>
-          
-        </div>
       
 
       
         <div class="post-nav">
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2015/09/19/Android的View绘制过程/" rel="prev">Android的View绘制过程</a>
-            
           </div>
 
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/08/31/9月计划/" rel="next">9月计划</a>
+              <a href="/2015/10/04/10月计划/" rel="next">10月计划</a>
             
           </div>
         </div>
@@ -410,7 +349,7 @@
           <div class="post-toc">
             
             
-              <p class="post-toc-empty">此文章未包含目錄</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#安装："><span class="nav-number">1.</span> <span class="nav-text">安装：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#添加包管理工具"><span class="nav-number">2.</span> <span class="nav-text">添加包管理工具</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#使用包管理工具安装插件"><span class="nav-number">3.</span> <span class="nav-text">使用包管理工具安装插件</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator"></div>
