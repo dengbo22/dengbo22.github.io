@@ -65,7 +65,7 @@
 1234&amp;lt;LinearLayout android:id=&quot;@+id/container&quot;    android:animateLayoutChanges=&quot;true&quot;    .../&amp;gt;
 
 自定义LayoutAnimatio">
-<meta property="og:updated_time" content="2015-09-12T16:51:11.000Z">
+<meta property="og:updated_time" content="2015-12-16T08:33:21.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android LayoutAnimation">
 <meta name="twitter:description" content="在使用系统默认的LayoutAnimation时，只需要在Layout中添加属性android:animateLayoutChanges = “true” 即可。
@@ -242,8 +242,8 @@
               &nbsp; | &nbsp; 分類於
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/编程学习/" itemprop="url" rel="index">
-                    <span itemprop="name">编程学习</span>
+                  <a href="/categories/programming/" itemprop="url" rel="index">
+                    <span itemprop="name">编程笔记</span>
                   </a>
                 </span>
 
@@ -289,7 +289,7 @@
 <li>APPEARING—— 此View在Layout中出现时，<strong>此View需要执行的动画</strong>。</li>
 <li>CHANGE_APPEADING——当一个View在Layout中出现时，此View对其他View位置造成影响，从而<strong>其他View需要执行的动画</strong></li>
 <li>DISAPPEARING—— 此View在Layout中消失时，<strong>此View需要执行的动画</strong>。</li>
-<li>CHANGE_DISAPPEARING——当一个View在Layout中消失时，这个View将对其他View的位置造成影响，从而<strong>其他View需要执行的动画</strong><br><strong>Ps: 在上文所述的默认情况下DISAPPEARING和CHANGE_DISAPPEARING都是立即开始，没有动画的。</strong><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//设置CHANGE_APPEARING,使用已有的动画</span></span><br><span class="line">mTransition.setAnimator(LayoutTransition.CHANGE_APPEARING, mTransition.getAnimator(LayoutTransition.CHANGE_APPEARING));</span><br><span class="line"><span class="comment">//设置APPEARING，不使用动画		</span></span><br><span class="line">mTransition.setAnimator(LayoutTransition.APPEARING,<span class="keyword">null</span>);</span><br><span class="line"><span class="comment">//设置DISAPPEARING，使用自定义的动画	</span></span><br><span class="line">mTransition.setAnimator(LayoutTransition.DISAPPEARING, 自定义的Animator );</span><br><span class="line"><span class="comment">//设置CHANGE_DISAPPEARING,不适用动画	</span></span><br><span class="line">transition.setAnimator(LayoutTransition.CHANGE_DISAPPEARING, <span class="keyword">null</span>);</span><br><span class="line"><span class="comment">//将LayoutTransition设置给对应的Layout</span></span><br><span class="line">container.setLayoutTransition(transition);</span><br></pre></td></tr></table></figure>
+<li>CHANGE_DISAPPEARING——当一个View在Layout中消失时，这个View将对其他View的位置造成影响，从而<strong>其他View需要执行的动画</strong><br><strong>Ps: 在上文所述的默认情况下DISAPPEARING和CHANGE_DISAPPEARING都是立即开始，没有动画的。</strong><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//设置CHANGE_APPEARING,使用已有的动画</span></span><br><span class="line">mTransition.setAnimator(LayoutTransition.CHANGE_APPEARING, mTransition.getAnimator(LayoutTransition.CHANGE_APPEARING));</span><br><span class="line"><span class="comment">//设置APPEARING，不使用动画		</span></span><br><span class="line">mTransition.setAnimator(LayoutTransition.APPEARING,<span class="keyword">null</span>);</span><br><span class="line"><span class="comment">//设置DISAPPEARING，使用自定义的动画</span></span><br><span class="line">mTransition.setAnimator(LayoutTransition.DISAPPEARING, 自定义的Animator );</span><br><span class="line"><span class="comment">//设置CHANGE_DISAPPEARING,不适用动画</span></span><br><span class="line">transition.setAnimator(LayoutTransition.CHANGE_DISAPPEARING, <span class="keyword">null</span>);</span><br><span class="line"><span class="comment">//将LayoutTransition设置给对应的Layout</span></span><br><span class="line">container.setLayoutTransition(transition);</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 <p>参考资料：<br><a href="http://blog.csdn.net/lmj623565791/article/details/38092093" target="_blank" rel="external">http://blog.csdn.net/lmj623565791/article/details/38092093</a> ——《Android 属性动画（Property Animation） 完全解析 （下）》</p>
@@ -397,14 +397,14 @@
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-count">2</span>
               <span class="site-state-item-name">分類</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">標籤</span>
               </a>
           </div>

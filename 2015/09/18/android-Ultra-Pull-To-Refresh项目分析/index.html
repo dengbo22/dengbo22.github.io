@@ -65,7 +65,7 @@
 
 在PtrIndicator中保存滑动的逻辑和状态
 12345//将这次的事件保存起来mLastMoveEvent = e//通过上一次的位置保存offsetX和offsetY，并且调用processOnMove计算出mHeaderView和mContentView需要进行的位移（阻滞系数）mPtrIndicator.on">
-<meta property="og:updated_time" content="2015-12-16T05:37:17.000Z">
+<meta property="og:updated_time" content="2015-12-16T08:33:19.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="android Ultra-Pull-To-Refresh项目分析">
 <meta name="twitter:description" content="dispatchTouchEvent()函数内部：Action_Move：
@@ -242,8 +242,8 @@
               &nbsp; | &nbsp; 分類於
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/编程学习/" itemprop="url" rel="index">
-                    <span itemprop="name">编程学习</span>
+                  <a href="/categories/programming/" itemprop="url" rel="index">
+                    <span itemprop="name">编程笔记</span>
                   </a>
                 </span>
 
@@ -292,7 +292,7 @@
 </li>
 </ol>
 <ul>
-<li>如果以上两种状态均不满足，获取当前的运行状态<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">boolean</span> moveDown = offsetY &gt; <span class="number">0</span>;</span><br><span class="line"><span class="keyword">boolean</span> moveUp = !moveDown;</span><br><span class="line"><span class="comment">//即判断当前的位置是否是开始的位置</span></span><br><span class="line"><span class="keyword">boolean</span> canMoveUp = mPtrIndicator.hasLeftStartPosition() </span><br><span class="line"><span class="keyword">if</span>(( moveUp &amp;&amp; canMoveUp) || moveDown) &#123;</span><br><span class="line">	movePos( offsetY );</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">true</span>;   <span class="comment">//表示事件已经被处理</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<li>如果以上两种状态均不满足，获取当前的运行状态<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">boolean</span> moveDown = offsetY &gt; <span class="number">0</span>;</span><br><span class="line"><span class="keyword">boolean</span> moveUp = !moveDown;</span><br><span class="line"><span class="comment">//即判断当前的位置是否是开始的位置</span></span><br><span class="line"><span class="keyword">boolean</span> canMoveUp = mPtrIndicator.hasLeftStartPosition()</span><br><span class="line"><span class="keyword">if</span>(( moveUp &amp;&amp; canMoveUp) || moveDown) &#123;</span><br><span class="line">	movePos( offsetY );</span><br><span class="line">	<span class="keyword">return</span> <span class="keyword">true</span>;   <span class="comment">//表示事件已经被处理</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ul>
 </span>
@@ -399,14 +399,14 @@
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-count">2</span>
               <span class="site-state-item-name">分類</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">標籤</span>
               </a>
           </div>

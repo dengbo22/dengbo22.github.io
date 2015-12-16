@@ -35,7 +35,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="Android," />
 
 
 
@@ -67,7 +67,7 @@ getItem和getItemId：由用户来定义其功能，android系统本身不对其
 getView: 在该条item被显示出来的时候调用，用来绘制该条item的具体View的内容
 getCount: 获取当前ListView中的数据条数
 getItem和getItemId：由用户来定义其功能，android系统本身不对其进行任何操作。BaseAdapter继承了SpinnerAdapter ,我们在Spinne">
-<meta property="og:updated_time" content="2015-09-12T16:51:02.000Z">
+<meta property="og:updated_time" content="2015-12-16T08:33:20.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android List Adapter">
 <meta name="twitter:description" content="Android ListView中的Adapter
@@ -245,8 +245,8 @@ getItem和getItemId：由用户来定义其功能，android系统本身不对其
               &nbsp; | &nbsp; 分類於
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/编程学习/" itemprop="url" rel="index">
-                    <span itemprop="name">编程学习</span>
+                  <a href="/categories/programming/" itemprop="url" rel="index">
+                    <span itemprop="name">编程笔记</span>
                   </a>
                 </span>
 
@@ -278,7 +278,7 @@ getItem和getItemId：由用户来定义其功能，android系统本身不对其
 <li>四个重要方法重载<ol>
 <li>getView: 在该条item被显示出来的时候调用，用来绘制该条item的具体View的内容</li>
 <li>getCount: 获取当前ListView中的数据条数</li>
-<li>getItem和getItemId：由用户来定义其功能，android系统本身不对其进行任何操作。BaseAdapter继承了SpinnerAdapter ,我们在SpinnerAdapter中去找这个方法的调用,没找到.BaseAdapter还继承了ListAdapter,我们去找,还是没有找到。既然都没有找到,那么这两个方法只能是适用这个Adapter的View来调用的,察看Gallery这个类,发现他继承了AbsSpinner,而AbsSpinner继承了AdapterView,在AdapterView类中,我们找到了如下的两个方法,<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Object <span class="title">getItemAtPosition</span><span class="params">(<span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line">      T adapter = getAdapter();</span><br><span class="line">      <span class="keyword">return</span> (adapter == <span class="keyword">null</span> || position &lt; <span class="number">0</span>) ? <span class="keyword">null</span> : adapter.getItem(position);</span><br><span class="line">  &#125;</span><br><span class="line"> </span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">getItemIdAtPosition</span><span class="params">(<span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line">      T adapter = getAdapter();</span><br><span class="line">      <span class="keyword">return</span> (adapter == <span class="keyword">null</span> || position &lt; <span class="number">0</span>) ? INVALID_ROW_ID : adapter.getItemId(position);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<li>getItem和getItemId：由用户来定义其功能，android系统本身不对其进行任何操作。BaseAdapter继承了SpinnerAdapter ,我们在SpinnerAdapter中去找这个方法的调用,没找到.BaseAdapter还继承了ListAdapter,我们去找,还是没有找到。既然都没有找到,那么这两个方法只能是适用这个Adapter的View来调用的,察看Gallery这个类,发现他继承了AbsSpinner,而AbsSpinner继承了AdapterView,在AdapterView类中,我们找到了如下的两个方法,<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> Object <span class="title">getItemAtPosition</span><span class="params">(<span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line">      T adapter = getAdapter();</span><br><span class="line">      <span class="keyword">return</span> (adapter == <span class="keyword">null</span> || position &lt; <span class="number">0</span>) ? <span class="keyword">null</span> : adapter.getItem(position);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">long</span> <span class="title">getItemIdAtPosition</span><span class="params">(<span class="keyword">int</span> position)</span> </span>&#123;</span><br><span class="line">      T adapter = getAdapter();</span><br><span class="line">      <span class="keyword">return</span> (adapter == <span class="keyword">null</span> || position &lt; <span class="number">0</span>) ? INVALID_ROW_ID : adapter.getItemId(position);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
 </li>
@@ -289,6 +289,12 @@ getItem和getItemId：由用户来定义其功能，android系统本身不对其
     </div>
 
     <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Android/" rel="tag">#Android</a>
+          
+        </div>
       
 
       
@@ -380,14 +386,14 @@ getItem和getItemId：由用户来定义其功能，android系统本身不对其
 
           <div class="site-state-item site-state-categories">
             <a href="/categories">
-              <span class="site-state-item-count">1</span>
+              <span class="site-state-item-count">2</span>
               <span class="site-state-item-name">分類</span>
               </a>
           </div>
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">3</span>
+              <span class="site-state-item-count">4</span>
               <span class="site-state-item-name">標籤</span>
               </a>
           </div>
