@@ -1,11 +1,10 @@
 <!doctype html>
-<html class="theme-next use-motion theme-next-mist">
+<html class="theme-next   use-motion ">
 <head>
-  
-
-<meta charset="UTF-8"/>
+  <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
 
 
 <meta http-equiv="Cache-Control" content="no-transform" />
@@ -18,21 +17,27 @@
 
 
 
-  <link rel="stylesheet" type="text/css" href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5"/>
 
 
 
-  <link href='//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css"/>
 
 
-<link rel="stylesheet" type="text/css" href="/css/main.css?v=0.4.5.1"/>
 
 
-    <meta name="description" content="学习总结  习惯养成  个人信仰" />
+  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
 
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="Android," />
+
+
 
 
 
@@ -40,28 +45,38 @@
 
 
 
-  <link rel="shorticon icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.1" />
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
 
 
-<meta name="description" content="继承已知Layout（如RelativeLayout和LinearLayout）
-创建构造函数：12345678//该构造函数一般在Java文件中创建控件使用public DefinedView( Context context )&amp;#123;	super( context );	LayoutInflater.from(context).inflate(R.layout.definedview,">
+
+
+
+
+<meta name="description" content="##继承已知Layout（如RelativeLayout和LinearLayout）
+###创建构造函数：
+12345678//该构造函数一般在Java文件中创建控件使用public DefinedView( Context context )&amp;#123;	super( context );	LayoutInflater.from(context).inflate(R.layout.defined">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android 自定义View">
 <meta property="og:url" content="http://yoursite.com/2015/08/17/Android-自定义View/index.html">
 <meta property="og:site_name" content="Tiny Space">
-<meta property="og:description" content="继承已知Layout（如RelativeLayout和LinearLayout）
-创建构造函数：12345678//该构造函数一般在Java文件中创建控件使用public DefinedView( Context context )&amp;#123;	super( context );	LayoutInflater.from(context).inflate(R.layout.definedview,">
-<meta property="og:updated_time" content="2015-11-01T15:35:35.018Z">
+<meta property="og:description" content="##继承已知Layout（如RelativeLayout和LinearLayout）
+###创建构造函数：
+12345678//该构造函数一般在Java文件中创建控件使用public DefinedView( Context context )&amp;#123;	super( context );	LayoutInflater.from(context).inflate(R.layout.defined">
+<meta property="og:updated_time" content="2015-12-16T05:37:17.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android 自定义View">
-<meta name="twitter:description" content="继承已知Layout（如RelativeLayout和LinearLayout）
-创建构造函数：12345678//该构造函数一般在Java文件中创建控件使用public DefinedView( Context context )&amp;#123;	super( context );	LayoutInflater.from(context).inflate(R.layout.definedview,">
+<meta name="twitter:description" content="##继承已知Layout（如RelativeLayout和LinearLayout）
+###创建构造函数：
+12345678//该构造函数一般在Java文件中创建控件使用public DefinedView( Context context )&amp;#123;	super( context );	LayoutInflater.from(context).inflate(R.layout.defined">
+
 
 
 <script type="text/javascript" id="hexo.configuration">
   var CONFIG = {
     scheme: 'Mist',
-    sidebar: 'post'
+    sidebar: 'post',
+    motion: true
   };
 </script>
 
@@ -83,20 +98,25 @@
 
 
 
+
+
+
   <div class="container one-column page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><h1 class="site-meta">
-  <span class="logo-line-before"><i></i></span>
-  <a href="/" class="brand" rel="start">
-      <span class="logo">
-        <i class="icon-next-logo"></i>
-      </span>
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
       <span class="site-title">Tiny Space</span>
-  </a>
-  <span class="logo-line-after"><i></i></span>
-</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">言念君子，温其如玉。</p>
+</div>
 
 <div class="site-nav-toggle">
   <button>
@@ -115,7 +135,9 @@
         
         <li class="menu-item menu-item-home">
           <a href="/" rel="section">
-            <i class="menu-item-icon icon-next-home"></i> <br />
+            
+              <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
+            
             首頁
           </a>
         </li>
@@ -123,7 +145,9 @@
         
         <li class="menu-item menu-item-categories">
           <a href="/categories" rel="section">
-            <i class="menu-item-icon icon-next-categories"></i> <br />
+            
+              <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
+            
             分類
           </a>
         </li>
@@ -131,7 +155,9 @@
         
         <li class="menu-item menu-item-about">
           <a href="/about" rel="section">
-            <i class="menu-item-icon icon-next-about"></i> <br />
+            
+              <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
+            
             關於
           </a>
         </li>
@@ -139,7 +165,9 @@
         
         <li class="menu-item menu-item-archives">
           <a href="/archives" rel="section">
-            <i class="menu-item-icon icon-next-archives"></i> <br />
+            
+              <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
+            
             歸檔
           </a>
         </li>
@@ -147,7 +175,9 @@
         
         <li class="menu-item menu-item-tags">
           <a href="/tags" rel="section">
-            <i class="menu-item-icon icon-next-tags"></i> <br />
+            
+              <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
+            
             標籤
           </a>
         </li>
@@ -166,56 +196,71 @@
 
     <main id="main" class="main">
       <div class="main-inner">
-        <div id="content" class="content"> 
+        <div id="content" class="content">
+          
 
   <div id="posts" class="posts-expand">
     
 
+  
+  
+
+  
+  
+  
+
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
 
-      
-      
-        <h1 class="post-title" itemprop="name headline">
-          
-          
-            
-              Android 自定义View
-            
-          
-        </h1>
-      
-
-      <div class="post-meta">
-        <span class="post-time">
-          發表於
-          <time itemprop="dateCreated" datetime="2015-08-17T16:25:22+08:00" content="2015-08-17">
-            2015-08-17
-          </time>
-        </span>
+    
+      <header class="post-header">
 
         
-          <span class="post-category" >
-            &nbsp; | &nbsp; 分類於
+        
+          <h1 class="post-title" itemprop="name headline">
             
-              <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                <a href="/categories/编程学习/" itemprop="url" rel="index">
-                  <span itemprop="name">编程学习</span>
-                </a>
-              </span>
-
-              
-              
-
             
+              
+                Android 自定义View
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            發表於
+            <time itemprop="dateCreated" datetime="2015-08-17T16:25:22+08:00" content="2015-08-17">
+              2015-08-17
+            </time>
           </span>
-        
 
-        
           
-        
-      </div>
-    </header>
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分類於
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/编程学习/" itemprop="url" rel="index">
+                    <span itemprop="name">编程学习</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
 
     <div class="post-body">
 
@@ -223,31 +268,21 @@
       
 
       
-        <span itemprop="articleBody"><h1 id="继承已知Layout（如RelativeLayout和LinearLayout）">继承已知Layout（如RelativeLayout和LinearLayout）</h1><p><br></p>
-<h2 id="创建构造函数：">创建构造函数：</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//该构造函数一般在Java文件中创建控件使用</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">DefinedView</span><span class="params">( Context context )</span></span>&#123;</span><br><span class="line">	<span class="keyword">super</span>( context );</span><br><span class="line">	LayoutInflater.from(context).inflate(R.layout.definedview, <span class="keyword">this</span>);</span><br><span class="line">	...</span><br><span class="line">	<span class="comment">//或者直接调用下一个函数，即使用以下代码：</span></span><br><span class="line">	<span class="keyword">this</span>( context, <span class="keyword">null</span> );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+        <span itemprop="articleBody"><p>##继承已知Layout（如RelativeLayout和LinearLayout）</p>
+<p>###创建构造函数：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//该构造函数一般在Java文件中创建控件使用</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">DefinedView</span><span class="params">( Context context )</span></span>&#123;</span><br><span class="line">	<span class="keyword">super</span>( context );</span><br><span class="line">	LayoutInflater.from(context).inflate(R.layout.definedview, <span class="keyword">this</span>);</span><br><span class="line">	...</span><br><span class="line">	<span class="comment">//或者直接调用下一个函数，即使用以下代码：</span></span><br><span class="line">	<span class="keyword">this</span>( context, <span class="keyword">null</span> );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//该构造函数一般在xml文件中创建控件时候调用</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">DefinedView</span><span class="params">( Context context, AttributeSet attrs)</span></span>&#123;</span><br><span class="line">	<span class="keyword">super</span>(context, attrs);</span><br><span class="line">	LayoutInflater.from(context).inflate(R.layout.definedview, <span class="keyword">this</span>);</span><br><span class="line">	【<span class="number">1</span>】...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>对于这个构造函数，因为会在这里读取attrs文件来获得各项参数，所以还需要进行一系列复杂的操作：</p>
-<ul>
-<li>在res/values目录下创建一个attrs_definedview.xml文件，以<strong>resources</strong>作为最外层根标签，并定义<strong>styleable</strong>标签,如：<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="pi">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">resources</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">declare-styleable</span> <span class="attribute">name</span>=<span class="value">"DefinedView"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">attr</span> <span class="attribute">name</span>=<span class="value">"mTextSize"</span>           <span class="attribute">format</span>=<span class="value">"dimension"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">attr</span> <span class="attribute">name</span>=<span class="value">"mText"</span>               <span class="attribute">format</span>=<span class="value">"string"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">attr</span> <span class="attribute">name</span>=<span class="value">"mViewColor"</span>    <span class="attribute">format</span>=<span class="value">"color"</span> /&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--</span><br><span class="line">        dimension表示尺寸，一般是一些以dp,sp,px等单位的内容</span><br><span class="line">        string表示字符串，一般是text的内容</span><br><span class="line">        color表示颜色，一般是背景等的内容</span><br><span class="line">        --&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">attr</span> <span class="attribute">name</span>= "<span class="attribute">android:text</span>"/&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--</span><br><span class="line">        此处为使用Android已经定义好的属性，此时不应该添加format属性</span><br><span class="line">        --&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">declare-styleable</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">resources</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<blockquote>
-<p>值得注意的是，在这里所创建的styleable name最好和控件的名称保持一致，才能够顺利的使用xml文件来指定该控件的某些属性。</p>
-</blockquote>
-<ul>
-<li><p>在构造函数（在之前的【1】处）中读取所创建的styleable内容,attrs指的是参数AttributeSet。</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">TypedArray array = context.obtainStyledAttributes(attrs,R.styleable.DefinedView);</span><br><span class="line"><span class="comment">//解析String</span></span><br><span class="line">String text = array.getString(R.styleable.DefinedView_text);</span><br><span class="line"><span class="keyword">if</span>(text == <span class="keyword">null</span> || text.isEmpty() )</span><br><span class="line">	text = <span class="string">"default text"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//解析Dimension</span></span><br><span class="line"><span class="keyword">float</span> textSize = array.getDimension(R.styleable.DefinedView_textSize, <span class="number">20</span>sp);</span><br><span class="line"></span><br><span class="line"><span class="comment">//解析color,后一个值表示未设置时的默认值</span></span><br><span class="line"><span class="keyword">int</span> color = array.getColor(R.styleable.DefinedView_viewColor, Color.RED);</span><br><span class="line"></span><br><span class="line"><span class="comment">//务必记得调用recycle()</span></span><br><span class="line">array.recycle();</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">//或是通过AttributeSet来获取在xml中设置的参数</span></span><br><span class="line"><span class="keyword">int</span> count = attrs.getAttributeCount();</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; count; i++) &#123;</span><br><span class="line">    String attrName = attrs.getAttributeName(i);</span><br><span class="line">    String attrVal = attrs.getAttributeValue(i);</span><br><span class="line">    <span class="comment">//...</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="comment">//可以通过这种方式来获取在xml中定义的所有属性，值得注意的是，</span></span><br><span class="line"><span class="comment">//使用这种方式而定义的@+的内容将会返回数字，而TypedArray会将数字解析</span></span><br><span class="line"><span class="comment">//所以在这种情况下需要改成以下代码：</span></span><br><span class="line">    <span class="keyword">int</span> attrValueReferenceId = attr.getAttributeResourceValue(<span class="number">0</span>,-<span class="number">1</span>);</span><br><span class="line">    String attrVal = getResources().getXXXX(attrValueReferenceId);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>原理<br>实质上，在使用<declare-styleable>标签时，aapt会自动在R.java下生成以下两类内容：</declare-styleable></p>
-</li>
-</ul>
 <ol>
-<li>属性指针static final int[] Declare-Styleable_NameTag = {各个属性的id}</li>
-<li>各个属性的指定下标，即各个属性在以上数组中的下标。之后在getXXX的时候，实质上即使用下标来获取，下标又获取到了属性指定的id，通过这个id来得到在xml设置的值<br>所以，以上操作实质上还可以在DefinedView.java中这么做：<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span>[] mAttr = &#123;R.attr.mTextSize, R.attr.mText, R.attr.mViewColor, android.R.attr.text  &#125;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> ATTR_TEXTSIZE = <span class="number">0</span>;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> ATTR_TEXT = <span class="number">1</span>;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> ATTR_VIEWCOLOR = <span class="number">2</span>;</span><br><span class="line"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">int</span> ATTR_ANDROID_TEXT = <span class="number">3</span>;</span><br><span class="line"></span><br><span class="line">TypedArray a = context.obtainStyledAttributes(attrs, mAttr);</span><br><span class="line"><span class="keyword">int</span> mTextSize = a.getString(ATTR_TEXTSIZE);</span><br><span class="line"><span class="comment">//以下省略</span></span><br></pre></td></tr></table></figure>
+<li>在res/values目录下创建一个attrs_definedview.xml文件，以<strong>resources</strong>作为最外层根标签，并定义<strong>styleable</strong>标签,如：<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="pi">&lt;?xml version="1.0" encoding="utf-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">resources</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="title">declare-styleable</span> <span class="attribute">name</span>=<span class="value">"DefinedView"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">attr</span> <span class="attribute">name</span>=<span class="value">"textSize"</span>           <span class="attribute">format</span>=<span class="value">"dimension"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">attr</span> <span class="attribute">name</span>=<span class="value">"text"</span>               <span class="attribute">format</span>=<span class="value">"string"</span> /&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="title">attr</span> <span class="attribute">name</span>=<span class="value">"viewColor"</span>    <span class="attribute">format</span>=<span class="value">"color"</span> /&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--</span><br><span class="line">        dimension表示尺寸，一般是一些以dp,sp,px等单位的内容</span><br><span class="line">        string表示字符串，一般是text的内容</span><br><span class="line">        color表示颜色，一般是背景等的内容</span><br><span class="line">        --&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="title">declare-styleable</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="title">resources</span>&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<p>与以上的结果完全一致</p>
-<h2 id="绘制图像内容">绘制图像内容</h2></span>
+<p><strong>值得注意的是，在这里所创建的styleable name必须和控件的名称保持一致，才能够顺利的使用xml文件来指定该控件的某些属性。</strong><br><br></p>
+<ol>
+<li>在构造函数（在之前的【1】处）中读取所创建的styleable内容<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">TypedArray array = context.obtainStyledAttributes(attrs,R.styleable.DefinedView);</span><br><span class="line"><span class="comment">//解析String</span></span><br><span class="line">String text = array.getString(R.styleable.DefinedView_text);</span><br><span class="line"><span class="keyword">if</span>(text == <span class="keyword">null</span> || text.isEmpty() )</span><br><span class="line">	text = <span class="string">"default text"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//解析Dimension</span></span><br><span class="line"><span class="keyword">float</span> textSize = array.getDimension(R.styleable.DefinedView_textSize, <span class="number">20</span>sp);</span><br><span class="line"></span><br><span class="line"><span class="comment">//解析color,后一个值表示未设置时的默认值</span></span><br><span class="line"><span class="keyword">int</span> color = array.getColor(R.styleable.DefinedView_viewColor, Color.RED);</span><br><span class="line"></span><br><span class="line"><span class="comment">//务必记得调用recycle()</span></span><br><span class="line">array.recycle();</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</span>
       
     </div>
 
@@ -262,13 +297,15 @@
 
       
         <div class="post-nav">
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/08/18/Android-LayoutAnimation/" rel="prev">Android LayoutAnimation</a>
+          <div class="post-nav-next post-nav-item">
             
           </div>
 
-          <div class="post-nav-next post-nav-item">
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2015/08/18/Android-LayoutAnimation/" rel="prev" title="Android LayoutAnimation">
+                Android LayoutAnimation <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -286,18 +323,22 @@
     </div>
   </div>
 
- </div>
+
+        </div>
 
         
 
+
         
-          <div class="comments" id="comments">
-            
-          </div>
-        
+  <div class="comments" id="comments">
+    
+  </div>
+
+
       </div>
 
       
+        
   
   <div class="sidebar-toggle">
     <div class="sidebar-toggle-line-wrap">
@@ -311,6 +352,8 @@
     <div class="sidebar-inner">
 
       
+
+      
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
             文章目錄
@@ -321,7 +364,7 @@
         </ul>
       
 
-      <section class="site-overview">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" src="/images/freedom.jpg" alt="Deng Changbo" itemprop="image"/>
           <p class="site-author-name" itemprop="name">Deng Changbo</p>
@@ -354,7 +397,7 @@
         
           <div class="feed-link motion-element">
             <a href="/atom.xml" rel="alternate">
-              <i class="menu-item-icon icon-next-feed"></i>
+              <i class="fa fa-rss"></i>
               RSS
             </a>
           </div>
@@ -374,15 +417,21 @@
       </section>
 
       
-        <section class="post-toc-wrap sidebar-panel-active">
-          <div class="post-toc-indicator-top post-toc-indicator"></div>
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc-indicator-top post-toc-indicator">
+            <i class="fa fa-angle-double-up"></i>
+          </div>
           <div class="post-toc">
             
+              
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#继承已知Layout（如RelativeLayout和LinearLayout）"><span class="nav-number">1.</span> <span class="nav-text">继承已知Layout（如RelativeLayout和LinearLayout）</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#创建构造函数："><span class="nav-number">1.1.</span> <span class="nav-text">创建构造函数：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#绘制图像内容"><span class="nav-number">1.2.</span> <span class="nav-text">绘制图像内容</span></a></li></ol></li></ol></div>
+            
+              <p class="post-toc-empty">此文章未包含目錄</p>
             
           </div>
-          <div class="post-toc-indicator-bottom post-toc-indicator"></div>
+          <div class="post-toc-indicator-bottom post-toc-indicator">
+            <i class="fa fa-angle-double-down"></i>
+          </div>
         </section>
       
 
@@ -390,15 +439,17 @@
   </aside>
 
 
+      
     </main>
 
     <footer id="footer" class="footer">
-      <div class="footer-inner"> <div class="copyright" >
+      <div class="footer-inner">
+        <div class="copyright" >
   
-  &copy; &nbsp; 
+  &copy; 
   <span itemprop="copyrightYear">2015</span>
   <span class="with-love">
-    <i class="icon-next-heart"></i>
+    <i class="icon-next-heart fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Deng Changbo</span>
 </div>
@@ -415,7 +466,8 @@
 </div>
 
 
- </div>
+
+      </div>
     </footer>
 
     <div class="back-to-top"></div>
@@ -425,6 +477,7 @@
 
   
   
+
   
     
     
@@ -433,28 +486,25 @@
 
 
   
+
   
   <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
-  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.1"></script>
+  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.2"></script>
 
 
-  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.1"></script>
-  
-
+  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.2"></script>
   <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
-  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
+<script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
 
-  <script type="text/javascript" src="/js/motion_global.js?v=0.4.5.1" id="motion.global"></script>
-
-
+<script type="text/javascript" src="/js/motion.js?v=0.4.5.2" id="motion.global"></script>
 
 
-  <script type="text/javascript" src="/js/nav-toggle.js?v=0.4.5.1"></script>
   <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
   
   
-<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.1" id="bootstrap.scrollspy.custom"></script>
+<script type="text/javascript" src="/js/bootstrap.scrollspy.js?v=0.4.5.2" id="bootstrap.scrollspy.custom"></script>
 
 
 <script type="text/javascript" id="sidebar.toc.highlight">
@@ -535,7 +585,7 @@
 
     function tocOverflowIndicator (indicator, action) {
       var $indicator = $(indicator);
-      var opacity = action === 'show' ? 0.4 : 0;
+      var opacity = action === 'show' ? 1 : 0;
       $indicator.velocity ?
         $indicator.velocity('stop').velocity({
           opacity: opacity
@@ -602,42 +652,26 @@
     });
 
     // Expand sidebar on post detail page by default, when post has a toc.
-    var $tocContent = $('.post-toc-content');
-    if (isDesktop() && CONFIG.sidebar === 'post') {
-      if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
-        displaySidebar();
+    motionMiddleWares.sidebar = function () {
+      var $tocContent = $('.post-toc-content');
+      if (CONFIG.sidebar === 'post') {
+        if ($tocContent.length > 0 && $tocContent.html().trim().length > 0) {
+          displaySidebar();
+        }
       }
-    }
+    };
   });
 </script>
 
 
 
-  <script type="text/javascript">
-    $(document).ready(function () {
-      if (CONFIG.sidebar === 'always') {
-        displaySidebar();
-      }
-      if (isMobile()) {
-        FastClick.attach(document.body);
-      }
-    });
-  </script>
-
-  
+  <script type="text/javascript" src="/js/bootstrap.js"></script>
 
   
   
 
   
-  <script type="text/javascript" src="/js/lazyload.js"></script>
-  <script type="text/javascript">
-    $(function () {
-      $("#posts").find('img').lazyload({
-        placeholder: "/images/loading.gif",
-        effect: "fadeIn"
-      });
-    });
-  </script>
+  
+
 </body>
 </html>
