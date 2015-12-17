@@ -35,7 +35,7 @@
 <link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Android,Animation," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -53,25 +53,16 @@
 
 
 
-<meta name="description" content="在使用系统默认的LayoutAnimation时，只需要在Layout中添加属性android:animateLayoutChanges = “true” 即可。
-1234&amp;lt;LinearLayout android:id=&quot;@+id/container&quot;    android:animateLayoutChanges=&quot;true&quot;    .../&amp;gt;
-
-自定义LayoutAnimatio">
+<meta name="description" content="RecyclerView中的相关类：RecyclerView.Adapter: 可以托管数据集合，为每一项Item创建视图并且绑定数据RecyclerView.ViewHolder: 承载Item视图的子布局RecyclerView.LayoutManager: 负责Item视图的布局的显示管理RecyclerView.ItemDecoration: 给每一项Item视图添加子View,例如可以进">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Android LayoutAnimation">
-<meta property="og:url" content="http://yoursite.com/2015/08/18/Android-LayoutAnimation/index.html">
+<meta property="og:title" content="Android列表控件RecyclerView">
+<meta property="og:url" content="http://yoursite.com/2015/12/16/Android列表控件RecyclerView/index.html">
 <meta property="og:site_name" content="Tiny Space">
-<meta property="og:description" content="在使用系统默认的LayoutAnimation时，只需要在Layout中添加属性android:animateLayoutChanges = “true” 即可。
-1234&amp;lt;LinearLayout android:id=&quot;@+id/container&quot;    android:animateLayoutChanges=&quot;true&quot;    .../&amp;gt;
-
-自定义LayoutAnimatio">
-<meta property="og:updated_time" content="2015-12-16T08:33:21.000Z">
+<meta property="og:description" content="RecyclerView中的相关类：RecyclerView.Adapter: 可以托管数据集合，为每一项Item创建视图并且绑定数据RecyclerView.ViewHolder: 承载Item视图的子布局RecyclerView.LayoutManager: 负责Item视图的布局的显示管理RecyclerView.ItemDecoration: 给每一项Item视图添加子View,例如可以进">
+<meta property="og:updated_time" content="2015-12-17T11:04:03.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Android LayoutAnimation">
-<meta name="twitter:description" content="在使用系统默认的LayoutAnimation时，只需要在Layout中添加属性android:animateLayoutChanges = “true” 即可。
-1234&amp;lt;LinearLayout android:id=&quot;@+id/container&quot;    android:animateLayoutChanges=&quot;true&quot;    .../&amp;gt;
-
-自定义LayoutAnimatio">
+<meta name="twitter:title" content="Android列表控件RecyclerView">
+<meta name="twitter:description" content="RecyclerView中的相关类：RecyclerView.Adapter: 可以托管数据集合，为每一项Item创建视图并且绑定数据RecyclerView.ViewHolder: 承载Item视图的子布局RecyclerView.LayoutManager: 负责Item视图的布局的显示管理RecyclerView.ItemDecoration: 给每一项Item视图添加子View,例如可以进">
 
 
 
@@ -83,7 +74,7 @@
   };
 </script>
 
-  <title> Android LayoutAnimation | Tiny Space </title>
+  <title> Android列表控件RecyclerView | Tiny Space </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zn-CN">
@@ -223,7 +214,7 @@
             
             
               
-                Android LayoutAnimation
+                Android列表控件RecyclerView
               
             
           </h1>
@@ -232,26 +223,11 @@
         <div class="post-meta">
           <span class="post-time">
             發表於
-            <time itemprop="dateCreated" datetime="2015-08-18T13:41:48+08:00" content="2015-08-18">
-              2015-08-18
+            <time itemprop="dateCreated" datetime="2015-12-16T21:44:58+08:00" content="2015-12-16">
+              2015-12-16
             </time>
           </span>
 
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp; 分類於
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/programming/" itemprop="url" rel="index">
-                    <span itemprop="name">编程笔记</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
           
 
           
@@ -271,58 +247,55 @@
       
 
       
-        <span itemprop="articleBody"><ul>
-<li><p>在使用系统默认的LayoutAnimation时，只需要在Layout中添加属性android:animateLayoutChanges = “true” 即可。</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">LinearLayout</span> <span class="attribute">android:id</span>=<span class="value">"@+id/container"</span></span><br><span class="line">    <span class="attribute">android:animateLayoutChanges</span>=<span class="value">"true"</span></span><br><span class="line">    <span class="attribute">...</span></span><br><span class="line">/&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>自定义LayoutAnimation</p>
-</li>
-</ul>
-<ol>
-<li><p>创建LayoutTransition对象</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">LayoutTransition mTransition = <span class="keyword">new</span> LayoutTransition();</span><br><span class="line">container.setLayoutTransition(mTransition);</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>设定LayoutTransition的动画内容，包括</p>
-</li>
-</ol>
+        <span itemprop="articleBody"><p>RecyclerView中的相关类：<br>RecyclerView.Adapter: 可以托管数据集合，为每一项Item创建视图并且绑定数据<br>RecyclerView.ViewHolder: 承载Item视图的子布局<br>RecyclerView.LayoutManager: 负责Item视图的布局的显示管理<br>RecyclerView.ItemDecoration: 给每一项Item视图添加子View,例如可以进行画分隔线之类的<br>RecyclerView.ItemAnimator: 负责处理数据添加或者删除时候的动画效果</p>
+<a id="more"></a>
+<h2 id="1-_使用RecyclerView">1. 使用RecyclerView</h2><blockquote>
+<p>compile ‘com.android.support:recyclerview-v7:23.1.1’<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- 在XML中添加RecyclerView--&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="title">android.support.v7.widget.RecyclerView</span></span><br><span class="line">  <span class="attribute">android:id</span>=<span class="value">"@+id/recyclerview"</span></span><br><span class="line">  <span class="attribute">android:layout_width</span>=<span class="value">"match_parent"</span></span><br><span class="line">  <span class="attribute">android:layout_height</span>=<span class="value">"match_parent"</span> /&gt;</span></span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h2 id="2-重载Adapter">2.重载Adapter</h2><p>对于Adapter而言，有几个关键函数需要重载</p>
 <ul>
-<li>APPEARING—— 此View在Layout中出现时，<strong>此View需要执行的动画</strong>。</li>
-<li>CHANGE_APPEADING——当一个View在Layout中出现时，此View对其他View位置造成影响，从而<strong>其他View需要执行的动画</strong></li>
-<li>DISAPPEARING—— 此View在Layout中消失时，<strong>此View需要执行的动画</strong>。</li>
-<li>CHANGE_DISAPPEARING——当一个View在Layout中消失时，这个View将对其他View的位置造成影响，从而<strong>其他View需要执行的动画</strong><br><strong>Ps: 在上文所述的默认情况下DISAPPEARING和CHANGE_DISAPPEARING都是立即开始，没有动画的。</strong><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//设置CHANGE_APPEARING,使用已有的动画</span></span><br><span class="line">mTransition.setAnimator(LayoutTransition.CHANGE_APPEARING, mTransition.getAnimator(LayoutTransition.CHANGE_APPEARING));</span><br><span class="line"><span class="comment">//设置APPEARING，不使用动画		</span></span><br><span class="line">mTransition.setAnimator(LayoutTransition.APPEARING,<span class="keyword">null</span>);</span><br><span class="line"><span class="comment">//设置DISAPPEARING，使用自定义的动画</span></span><br><span class="line">mTransition.setAnimator(LayoutTransition.DISAPPEARING, 自定义的Animator );</span><br><span class="line"><span class="comment">//设置CHANGE_DISAPPEARING,不适用动画</span></span><br><span class="line">transition.setAnimator(LayoutTransition.CHANGE_DISAPPEARING, <span class="keyword">null</span>);</span><br><span class="line"><span class="comment">//将LayoutTransition设置给对应的Layout</span></span><br><span class="line">container.setLayoutTransition(transition);</span><br></pre></td></tr></table></figure>
+<li><p><strong>public int getItemCount()</strong><br>个人理解来看，这个函数将会被首先调用，从而RecyclerView将会根据这个函数判断需要创建多少个ViewItem，一般都是返回Adapter对应内容的List的size()</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> mItem.size();</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>public int getItemViewType(int position)</strong><br>接下来将根据获取的item数量逐个创建item。这个函数用来获取ListView在指定position的Type，从而系统或根据获取到的Type类型来决定是重用已经用过的ViewHolder还是重新新建一个ViewHolder。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; mHeader.size(); i++) &#123;</span><br><span class="line">  <span class="keyword">if</span>( position == mHeader.get(i) )</span><br><span class="line">		<span class="keyword">return</span> TYPE_HEADER;</span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">return</span> TYPE_ITEM;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int typeView)</strong><br>个人理解：此处parent就是之前在RecyclerView中创建的一个一个的item，而后根据前一个函数获取到的ViewType，从而加载不同的内容，并且将形成的整个视图作为ViewHolder返回出去。所以此处主要执行inflate函数，并且将结果view作为传给各个ViewHolder作为参数执行findViewById()，并将内容保存在ViewHolder的内部类里面。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">View view = mLayoutInflater.inflate(R.layout.XX, parent, <span class="keyword">false</span>);</span><br><span class="line"><span class="keyword">return</span> <span class="keyword">new</span> XXViewHolder(view);</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>public void onBindViewHolder( RecyclerView.ViewHolder viewHolder, int position)</strong><br>该个函数将会根据上一个函数所创建的ViewHolder，并且将这个ViewHolder作为参数传递到这个函数中，所以可以根据参数中的position得到类型名称并且将获取到的ViewHolder的类型进行强制类型转换，并且将具体的View的内容进行设置，相当于在Fragment中调用getTag()函数以后进行的操作。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">switch</span>( position_type) &#123;</span><br><span class="line">	<span class="keyword">case</span> TYPE_HEADER:</span><br><span class="line">		(XXViewHolder)view.widget.setXX( XXX);</span><br><span class="line">		<span class="keyword">break</span>;</span><br><span class="line">	<span class="keyword">case</span> TYPE_ITEM:</span><br><span class="line">		<span class="comment">//...</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>其他注意事项</strong><br>创建RecyclerView中的各个子类的ViewHolder，均继承自RecyclerView.ViewHolder。各个类均只包括其中的各个控件，并且重写构造函数，参数为View（其实就是parentView）。并且在构造的时候使用findViewById()将各个xml控件和java控件绑定。</p>
 </li>
 </ul>
-<p>参考资料：<br><a href="http://blog.csdn.net/lmj623565791/article/details/38092093" target="_blank" rel="external">http://blog.csdn.net/lmj623565791/article/details/38092093</a> ——《Android 属性动画（Property Animation） 完全解析 （下）》</p>
+<h2 id="3-_关于LayoutManager">3. 关于LayoutManager</h2><p>布局管理器，其用来管理每一项View在RecyclerView中的位置布局以及其显示和隐藏。RecyclerView默认提供了三种内部布局管理器：</p>
+<ul>
+<li><strong>LinearLayoutManager</strong>： 线性布局<br>其可以使用setOrientation来设置RecyclerView的水平或者竖直摆放</li>
+<li><p><strong>GridLayoutManager</strong>: 表格布局  </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//构造函数,GridSpan表示一行(列)中的网格个数</span></span><br><span class="line">GridLayoutManager(Context context, <span class="keyword">int</span> GridSpan)</span><br><span class="line"><span class="comment">//设置宽度监听器，可以用来动态设置每一行（列）中的网格格数</span></span><br><span class="line">setSpanSizeLookup(SpanSizeLookup lookup)</span><br><span class="line"><span class="comment">//重载getSpanSize,返回position的网格格数</span></span><br><span class="line">GridLayoutManager.SpanSizeLookup</span><br><span class="line">  --&gt; getSpanSize(<span class="keyword">int</span> position)</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>StaggeredGridLayoutManager</strong>: 瀑布流式布局</p>
+</li>
+</ul>
 </span>
       
     </div>
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/Android/" rel="tag">#Android</a>
-          
-            <a href="/tags/Animation/" rel="tag">#Animation</a>
-          
-        </div>
-      
 
       
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2015/08/17/Android-自定义View/" rel="next" title="Android 自定义View">
-                <i class="fa fa-chevron-left"></i> Android 自定义View
+              <a href="/2015/10/07/Ubuntu下的Sublime安装/" rel="next" title="Ubuntu下的Sublime安装">
+                <i class="fa fa-chevron-left"></i> Ubuntu下的Sublime安装
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2015/08/27/Android-List-Adapter/" rel="prev" title="Android List Adapter">
-                Android List Adapter <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -443,7 +416,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目錄</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-_使用RecyclerView"><span class="nav-number">1.</span> <span class="nav-text">1. 使用RecyclerView</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-重载Adapter"><span class="nav-number">2.</span> <span class="nav-text">2.重载Adapter</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-_关于LayoutManager"><span class="nav-number">3.</span> <span class="nav-text">3. 关于LayoutManager</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
