@@ -199,6 +199,98 @@
 
     
     
+      
+      
+        
+        
+        
+      
+
+      
+    
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/03/03/Python内核分析——基本类型/" itemprop="url">
+                  Python内核分析——基本类型
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            發表於
+            <time itemprop="dateCreated" datetime="2016-03-03T12:09:31+08:00" content="2016-03-03">
+              2016-03-03
+            </time>
+          </span>
+
+          
+
+          
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <h2 id="Python基本对象">Python基本对象</h2><p>python中所有东西都是对象，而所有对象都拥有的相同的内容，就是PyObject中的内容：<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> _object &#123;</span><br><span class="line">  <span class="keyword">int</span> ob_refcnt;    <span class="comment">//对象的引用计数</span></span><br><span class="line">  <span class="keyword">struct</span> _typeobject *ob_type; <span class="comment">//对象的类型指针</span></span><br><span class="line">&#125; PyObject</span><br></pre></td></tr></table></figure></p>
+<p>在此基础上，由于一些变量的长度是可变的，那么对于这些变量，则需要另一个结构体来储存，这就是PyVarObject。<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> PyObject_VAR_HEAD &#123;</span><br><span class="line">	<span class="keyword">int</span> ob_refcnt;</span><br><span class="line">	<span class="keyword">struct</span> _typeobject *ob_type;</span><br><span class="line">	<span class="keyword">int</span> ob_size;   <span class="comment">//保存的元素的个数而非字节数</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>其中，对于上面两个结构体而言，都有_typeobject的指针，其具体实现如下<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> _typeobject &#123;</span><br><span class="line">	PyObject_VAR_HEAD</span><br><span class="line">	<span class="keyword">char</span> *tp_name;   <span class="comment">/*类型的名称*/</span></span><br><span class="line">	<span class="keyword">int</span> tp_basicsize, <span class="comment">//类型大小，用于申请内存</span></span><br><span class="line">	    tp_itemsize;  <span class="comment">//表示每个元素所占的字节数</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">/*以下为函数指针，用于函数操作*/</span></span><br><span class="line">	destructor tp_dealloc;   <span class="comment">//对象析构函数指针</span></span><br><span class="line">	printfunc tp_print;   <span class="comment">//打印函数</span></span><br><span class="line">	<span class="comment">/*其他标准操作*/</span></span><br><span class="line">	hashfunc tp_hash;  <span class="comment">//哈希操作函数</span></span><br><span class="line">	......</span><br><span class="line">&#125; PyTypeObject;</span><br></pre></td></tr></table></figure></p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/03/03/Python内核分析——基本类型/#more" rel="contents">
+              閱讀全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
 
     
       
@@ -1122,7 +1214,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">8</span>
+              <span class="site-state-item-count">9</span>
               <span class="site-state-item-name">文章</span>
             </a>
           </div>
@@ -1179,7 +1271,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2015</span>
+  <span itemprop="copyrightYear">2016</span>
   <span class="with-love">
     <i class="icon-next-heart fa fa-heart"></i>
   </span>
