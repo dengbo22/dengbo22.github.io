@@ -53,22 +53,19 @@
 
 
 
-<meta name="description" content="##继承已知Layout（如RelativeLayout和LinearLayout）
-###创建构造函数：
-12345678//该构造函数一般在Java文件中创建控件使用public DefinedView( Context context )&amp;#123;	super( context );	LayoutInflater.from(context).inflate(R.layout.defined">
+<meta name="description" content="继承自ViewGroup（如RelativeLayout和LinearLayout）创建构造函数：
+12345678//该构造函数一般在Java文件中创建控件使用public DefinedView( Context context )&amp;#123;	super( context );	LayoutInflater.from(context).inflate(R.layout.definedview">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Android 自定义View">
 <meta property="og:url" content="http://yoursite.com/2015/08/17/Android-自定义View/index.html">
 <meta property="og:site_name" content="Tiny Space">
-<meta property="og:description" content="##继承已知Layout（如RelativeLayout和LinearLayout）
-###创建构造函数：
-12345678//该构造函数一般在Java文件中创建控件使用public DefinedView( Context context )&amp;#123;	super( context );	LayoutInflater.from(context).inflate(R.layout.defined">
-<meta property="og:updated_time" content="2015-12-16T08:33:21.000Z">
+<meta property="og:description" content="继承自ViewGroup（如RelativeLayout和LinearLayout）创建构造函数：
+12345678//该构造函数一般在Java文件中创建控件使用public DefinedView( Context context )&amp;#123;	super( context );	LayoutInflater.from(context).inflate(R.layout.definedview">
+<meta property="og:updated_time" content="2016-03-21T11:45:05.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Android 自定义View">
-<meta name="twitter:description" content="##继承已知Layout（如RelativeLayout和LinearLayout）
-###创建构造函数：
-12345678//该构造函数一般在Java文件中创建控件使用public DefinedView( Context context )&amp;#123;	super( context );	LayoutInflater.from(context).inflate(R.layout.defined">
+<meta name="twitter:description" content="继承自ViewGroup（如RelativeLayout和LinearLayout）创建构造函数：
+12345678//该构造函数一般在Java文件中创建控件使用public DefinedView( Context context )&amp;#123;	super( context );	LayoutInflater.from(context).inflate(R.layout.definedview">
 
 
 
@@ -268,8 +265,7 @@
       
 
       
-        <span itemprop="articleBody"><p>##继承已知Layout（如RelativeLayout和LinearLayout）</p>
-<p>###创建构造函数：</p>
+        <span itemprop="articleBody"><h2 id="继承自ViewGroup（如RelativeLayout和LinearLayout）">继承自ViewGroup（如RelativeLayout和LinearLayout）</h2><p>创建构造函数：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//该构造函数一般在Java文件中创建控件使用</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">DefinedView</span><span class="params">( Context context )</span></span>&#123;</span><br><span class="line">	<span class="keyword">super</span>( context );</span><br><span class="line">	LayoutInflater.from(context).inflate(R.layout.definedview, <span class="keyword">this</span>);</span><br><span class="line">	...</span><br><span class="line">	<span class="comment">//或者直接调用下一个函数，即使用以下代码：</span></span><br><span class="line">	<span class="keyword">this</span>( context, <span class="keyword">null</span> );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//该构造函数一般在xml文件中创建控件时候调用</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">DefinedView</span><span class="params">( Context context, AttributeSet attrs)</span></span>&#123;</span><br><span class="line">	<span class="keyword">super</span>(context, attrs);</span><br><span class="line">	LayoutInflater.from(context).inflate(R.layout.definedview, <span class="keyword">this</span>);</span><br><span class="line">	【<span class="number">1</span>】...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>对于这个构造函数，因为会在这里读取attrs文件来获得各项参数，所以还需要进行一系列复杂的操作：</p>
@@ -282,7 +278,7 @@
 <li>在构造函数（在之前的【1】处）中读取所创建的styleable内容<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">TypedArray array = context.obtainStyledAttributes(attrs,R.styleable.DefinedView);</span><br><span class="line"><span class="comment">//解析String</span></span><br><span class="line">String text = array.getString(R.styleable.DefinedView_text);</span><br><span class="line"><span class="keyword">if</span>(text == <span class="keyword">null</span> || text.isEmpty() )</span><br><span class="line">	text = <span class="string">"default text"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//解析Dimension</span></span><br><span class="line"><span class="keyword">float</span> textSize = array.getDimension(R.styleable.DefinedView_textSize, <span class="number">20</span>sp);</span><br><span class="line"></span><br><span class="line"><span class="comment">//解析color,后一个值表示未设置时的默认值</span></span><br><span class="line"><span class="keyword">int</span> color = array.getColor(R.styleable.DefinedView_viewColor, Color.RED);</span><br><span class="line"></span><br><span class="line"><span class="comment">//务必记得调用recycle()</span></span><br><span class="line">array.recycle();</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-</span>
+<h2 id="继承自View">继承自View</h2></span>
       
     </div>
 
@@ -428,7 +424,7 @@
               
             
             
-              <p class="post-toc-empty">此文章未包含目錄</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#继承自ViewGroup（如RelativeLayout和LinearLayout）"><span class="nav-number">1.</span> <span class="nav-text">继承自ViewGroup（如RelativeLayout和LinearLayout）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#继承自View"><span class="nav-number">2.</span> <span class="nav-text">继承自View</span></a></li></ol></div>
             
           </div>
           <div class="post-toc-indicator-bottom post-toc-indicator">
