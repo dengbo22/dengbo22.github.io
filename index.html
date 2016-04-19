@@ -231,6 +231,102 @@
             
               
                 
+                <a class="post-title-link" href="/2016/04/18/Android-消息通讯-Handler和Looper与MessageQueue的恩怨情仇/" itemprop="url">
+                  Handler和Looper与MessageQueue的恩怨情仇
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            發表於
+            <time itemprop="dateCreated" datetime="2016-04-18T17:16:32+08:00" content="2016-04-18">
+              2016-04-18
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp; 分類於
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/programming/" itemprop="url" rel="index">
+                    <span itemprop="name">编程笔记</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body">
+
+      
+      
+
+      
+        
+          <p>Message是Android中最为常用的消息通讯机制，这种机制是建立在Handler、Looper和MessageQueue的分工协作上。Message通过Handler分发到MessageQueue中，MessageQueue将所有的Message组织成一个链表，通过Looper不断的将MessageQueue中的Message取出，取出以后又交付给对应的Handler来处理，从而完成一整套消息通讯机制。<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/04/18/Android-消息通讯-Handler和Looper与MessageQueue的恩怨情仇/#more" rel="contents">
+              閱讀全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/03/03/Python内核分析——基本类型/" itemprop="url">
                   Python内核分析——基本类型
                 </a>
@@ -1132,7 +1228,15 @@
         
           <span itemprop="articleBody">
             
-              <h2 id="继承自ViewGroup（如RelativeLayout和LinearLayout）">继承自ViewGroup（如RelativeLayout和LinearLayout）</h2><p>创建构造函数：</p>
+              <h2 id="继承自View">继承自View</h2><ul>
+<li><p><strong>重写onMeasure()</strong><br>在这个函数中主要完成对wrap_content的支持,所以需要处理在设置wrap_content的时候，该控件的具体大小，在这里我们假设设置wrap_content时，控件的大小被设定为一个恒定的值。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义的函数成员，一般该值需要默认定义好</span></span><br><span class="line"><span class="keyword">int</span> mWrapContentWidth = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> mWrapContentHeight = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//onMeasure中主要是需要完成对控件大小的设定,</span></span><br><span class="line"><span class="comment">//参数是父控件根据其MeasureSpec和当前控件的Layoutparams合成的</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onMeasure</span><span class="params">(<span class="keyword">int</span> widthMeasureSpec, <span class="keyword">int</span> heightMeasureSpec)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">super</span>.onMeasure(widthMeasureSpec, heightMeasureSpec);</span><br><span class="line">	<span class="keyword">int</span> widthSpecMode = MeasureSpec.getMode(widthMeasureSpec);</span><br><span class="line">	<span class="keyword">int</span> heightSpecMode = MeasureSpec.getMode(heightMeasureSpec);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> resultWidthSize = MeasureSpec.getSize(widthMeasureSpec);</span><br><span class="line">	<span class="keyword">int</span> resultHeightSize = MeasureSpec.getSize(heightMeasureSpec);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>(widthSpecMode == MeasureSpec.AT_MOST &amp;&amp; heightSpecMode == MeasureSpec.AT_MOST) &#123;</span><br><span class="line">		<span class="comment">//此时认为xml中该控件的长宽均被设定为wrap_content</span></span><br><span class="line">		<span class="comment">//此时控件的最小长宽由自己来处理</span></span><br><span class="line">		resultWidthSize = mWrapContentWidth;</span><br><span class="line">		resultHeightSize = mWrapContentHeight;</span><br><span class="line">	&#125;<span class="keyword">else</span> <span class="keyword">if</span> (widthSpecMode == MeasureSpec.AT_MOST) &#123;</span><br><span class="line">		resultWidthSize = mWrapContentWidth;</span><br><span class="line">	&#125;<span class="keyword">else</span> <span class="keyword">if</span> (heightSpecMode == MeasureSpec.AT_MOST) &#123;</span><br><span class="line">		resultHeightSize = mWrapContentHeight;</span><br><span class="line">	&#125;</span><br><span class="line">	setMeasuredDimension(resultWidthSize, resultHeightSize);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><strong>重写onDraw()</strong><br>一般来说最重要的就是重写onDraw()函数，由于<strong>margin是由父控件控制和考虑的</strong>，所以在onDraw中不需要考虑其margin的设定，但是由于padding是由子View自己处理的，所以在这里需要在绘图的时候考虑padding的存在对位置的影响</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//由参数设定好的各种画笔工具</span></span><br><span class="line"><span class="keyword">private</span> Paint mPaint = <span class="keyword">new</span> Paint(Paint.ANTI_ALIAS_FLAG);</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDraw</span><span class="params">(Canvas Canvas)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">super</span>.onDraw(canvas);</span><br><span class="line">	<span class="keyword">final</span> <span class="keyword">int</span> paddingLeft = getPaddingLeft();</span><br><span class="line">	<span class="keyword">final</span> <span class="keyword">int</span> paddingTop = getPaddingTop();</span><br><span class="line">	<span class="keyword">final</span> <span class="keyword">int</span> paddingRight = getPaddingRight();</span><br><span class="line">	<span class="keyword">final</span> <span class="keyword">int</span> paddingBottom = getPaddingBottom();</span><br><span class="line">	<span class="comment">//通过画笔来绘图，此时绘图的时候需要将以上参数考虑进去并作处理</span></span><br><span class="line">	mPaint.drawCircle(...);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="继承自ViewGroup">继承自ViewGroup</h2><p>创建构造函数：</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//该构造函数一般在Java文件中创建控件使用</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">DefinedView</span><span class="params">( Context context )</span></span>&#123;</span><br><span class="line">	<span class="keyword">super</span>( context );</span><br><span class="line">	LayoutInflater.from(context).inflate(R.layout.definedview, <span class="keyword">this</span>);</span><br><span class="line">	...</span><br><span class="line">	<span class="comment">//或者直接调用下一个函数，即使用以下代码：</span></span><br><span class="line">	<span class="keyword">this</span>( context, <span class="keyword">null</span> );</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//该构造函数一般在xml文件中创建控件时候调用</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="title">DefinedView</span><span class="params">( Context context, AttributeSet attrs)</span></span>&#123;</span><br><span class="line">	<span class="keyword">super</span>(context, attrs);</span><br><span class="line">	LayoutInflater.from(context).inflate(R.layout.definedview, <span class="keyword">this</span>);</span><br><span class="line">	【<span class="number">1</span>】...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>对于这个构造函数，因为会在这里读取attrs文件来获得各项参数，所以还需要进行一系列复杂的操作：</p>
@@ -1145,7 +1249,7 @@
 <li>在构造函数（在之前的【1】处）中读取所创建的styleable内容<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">TypedArray array = context.obtainStyledAttributes(attrs,R.styleable.DefinedView);</span><br><span class="line"><span class="comment">//解析String</span></span><br><span class="line">String text = array.getString(R.styleable.DefinedView_text);</span><br><span class="line"><span class="keyword">if</span>(text == <span class="keyword">null</span> || text.isEmpty() )</span><br><span class="line">	text = <span class="string">"default text"</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//解析Dimension</span></span><br><span class="line"><span class="keyword">float</span> textSize = array.getDimension(R.styleable.DefinedView_textSize, <span class="number">20</span>sp);</span><br><span class="line"></span><br><span class="line"><span class="comment">//解析color,后一个值表示未设置时的默认值</span></span><br><span class="line"><span class="keyword">int</span> color = array.getColor(R.styleable.DefinedView_viewColor, Color.RED);</span><br><span class="line"></span><br><span class="line"><span class="comment">//务必记得调用recycle()</span></span><br><span class="line">array.recycle();</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<h2 id="继承自View">继承自View</h2>
+
             
           </span>
         
@@ -1208,7 +1312,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
-              <span class="site-state-item-count">9</span>
+              <span class="site-state-item-count">10</span>
               <span class="site-state-item-name">文章</span>
             </a>
           </div>
@@ -1222,7 +1326,7 @@
 
           <div class="site-state-item site-state-tags">
             <a href="/tags">
-              <span class="site-state-item-count">4</span>
+              <span class="site-state-item-count">5</span>
               <span class="site-state-item-name">標籤</span>
               </a>
           </div>
