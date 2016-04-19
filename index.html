@@ -1,5 +1,11 @@
 <!doctype html>
-<html class="theme-next   use-motion ">
+
+
+
+  
+
+
+<html class="theme-next mist use-motion">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
@@ -26,13 +32,36 @@
 
 
 
-  <link href="//fonts.googleapis.com/css?family=Lato:300,400,700,400italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
 
 
 
 <link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
 
-<link href="/css/main.css?v=0.4.5.2" rel="stylesheet" type="text/css" />
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
   <meta name="keywords" content="Hexo, NexT" />
@@ -46,7 +75,7 @@
 
 
 
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=0.4.5.2" />
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
 
 
 
@@ -66,27 +95,24 @@
 
 
 <script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
   var CONFIG = {
     scheme: 'Mist',
-    sidebar: 'post',
-    motion: true
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
   };
 </script>
 
   <title> Tiny Space </title>
 </head>
 
-<body itemscope itemtype="http://schema.org/WebPage" lang="zn-CN">
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
-  <!--[if lte IE 8]>
-  <div style=' clear: both; height: 59px; padding:0 0 0 15px; position: relative;margin:0 auto;'>
-    <a href="http://windows.microsoft.com/en-US/internet-explorer/products/ie/home?ocid=ie6_countdown_bannercode">
-      <img src="http://7u2nvr.com1.z0.glb.clouddn.com/picouterie.jpg" border="0" height="42" width="820"
-           alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today or use other browser ,like chrome firefox safari."
-           style='margin-left:auto;margin-right:auto;display: block;'/>
-    </a>
-  </div>
-<![endif]-->
   
 
 
@@ -94,9 +120,18 @@
 
 
 
-  <div class="container one-column 
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left 
    page-home 
-">
+ ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -125,7 +160,7 @@
   
 
   
-    <ul id="menu" class="menu ">
+    <ul id="menu" class="menu">
       
         
         <li class="menu-item menu-item-home">
@@ -133,7 +168,7 @@
             
               <i class="menu-item-icon fa fa-home fa-fw"></i> <br />
             
-            首頁
+            首页
           </a>
         </li>
       
@@ -143,7 +178,7 @@
             
               <i class="menu-item-icon fa fa-th fa-fw"></i> <br />
             
-            分類
+            分类
           </a>
         </li>
       
@@ -153,7 +188,7 @@
             
               <i class="menu-item-icon fa fa-user fa-fw"></i> <br />
             
-            關於
+            关于
           </a>
         </li>
       
@@ -163,7 +198,7 @@
             
               <i class="menu-item-icon fa fa-archive fa-fw"></i> <br />
             
-            歸檔
+            归档
           </a>
         </li>
       
@@ -173,12 +208,11 @@
             
               <i class="menu-item-icon fa fa-tags fa-fw"></i> <br />
             
-            標籤
+            标签
           </a>
         </li>
       
 
-      
       
     </ul>
   
@@ -191,24 +225,10 @@
 
     <main id="main" class="main">
       <div class="main-inner">
-        <div id="content" class="content">
-          
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
   <section id="posts" class="posts-expand">
-
-    
-
-    
-    
-      
-      
-        
-        
-        
-      
-
-      
-    
-
     
       
 
@@ -241,7 +261,10 @@
 
         <div class="post-meta">
           <span class="post-time">
-            發表於
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
             <time itemprop="dateCreated" datetime="2016-04-18T17:16:32+08:00" content="2016-04-18">
               2016-04-18
             </time>
@@ -249,7 +272,11 @@
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp; 分類於
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/programming/" itemprop="url" rel="index">
@@ -277,12 +304,16 @@
 
           
 
+          
+          
+
+          
         </div>
       </header>
     
 
 
-    <div class="post-body">
+    <div class="post-body" itemprop="articleBody">
 
       
       
@@ -292,10 +323,18 @@
           <p>Message是Android中最为常用的消息通讯机制，这种机制是建立在Handler、Looper和MessageQueue的分工协作上。Message通过Handler分发到MessageQueue中，MessageQueue将所有的Message组织成一个链表，通过Looper不断的将MessageQueue中的Message取出，取出以后又交付给对应的Handler来处理，从而完成一整套消息通讯机制。<br>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/04/18/Android-消息通讯-Handler和Looper与MessageQueue的恩怨情仇/#more" rel="contents">
-              閱讀全文 &raquo;
+              阅读全文 &raquo;
             </a>
           </div>
         
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -344,7 +383,10 @@
 
         <div class="post-meta">
           <span class="post-time">
-            發表於
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
             <time itemprop="dateCreated" datetime="2016-03-03T12:09:31+08:00" content="2016-03-03">
               2016-03-03
             </time>
@@ -365,12 +407,16 @@
 
           
 
+          
+          
+
+          
         </div>
       </header>
     
 
 
-    <div class="post-body">
+    <div class="post-body" itemprop="articleBody">
 
       
       
@@ -382,10 +428,18 @@
 <p>其中，对于上面两个结构体而言，都有_typeobject的指针，其具体实现如下<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">typedef</span> <span class="keyword">struct</span> _typeobject &#123;</span><br><span class="line">	PyObject_VAR_HEAD</span><br><span class="line">	<span class="keyword">char</span> *tp_name;   <span class="comment">/*类型的名称*/</span></span><br><span class="line">	<span class="keyword">int</span> tp_basicsize, <span class="comment">//类型大小，用于申请内存</span></span><br><span class="line">	    tp_itemsize;  <span class="comment">//表示每个元素所占的字节数</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">/*以下为函数指针，用于函数操作*/</span></span><br><span class="line">	destructor tp_dealloc;   <span class="comment">//对象析构函数指针</span></span><br><span class="line">	printfunc tp_print;   <span class="comment">//打印函数</span></span><br><span class="line">	<span class="comment">/*其他标准操作*/</span></span><br><span class="line">	hashfunc tp_hash;  <span class="comment">//哈希操作函数</span></span><br><span class="line">	......</span><br><span class="line">&#125; PyTypeObject;</span><br></pre></td></tr></table></figure></p>
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/03/03/Python内核分析——基本类型/#more" rel="contents">
-              閱讀全文 &raquo;
+              阅读全文 &raquo;
             </a>
           </div>
         
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -434,7 +488,10 @@
 
         <div class="post-meta">
           <span class="post-time">
-            發表於
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
             <time itemprop="dateCreated" datetime="2015-12-16T21:44:58+08:00" content="2015-12-16">
               2015-12-16
             </time>
@@ -455,12 +512,16 @@
 
           
 
+          
+          
+
+          
         </div>
       </header>
     
 
 
-    <div class="post-body">
+    <div class="post-body" itemprop="articleBody">
 
       
       
@@ -470,10 +531,18 @@
           <p>RecyclerView中的相关类：<br>RecyclerView.Adapter: 可以托管数据集合，为每一项Item创建视图并且绑定数据<br>RecyclerView.ViewHolder: 承载Item视图的子布局<br>RecyclerView.LayoutManager: 负责Item视图的布局的显示管理<br>RecyclerView.ItemDecoration: 给每一项Item视图添加子View,例如可以进行画分隔线之类的<br>RecyclerView.ItemAnimator: 负责处理数据添加或者删除时候的动画效果</p>
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/12/16/Android列表控件RecyclerView/#more" rel="contents">
-              閱讀全文 &raquo;
+              阅读全文 &raquo;
             </a>
           </div>
         
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -522,7 +591,10 @@
 
         <div class="post-meta">
           <span class="post-time">
-            發表於
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
             <time itemprop="dateCreated" datetime="2015-10-07T17:30:50+08:00" content="2015-10-07">
               2015-10-07
             </time>
@@ -530,7 +602,11 @@
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp; 分類於
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/operating-system/" itemprop="url" rel="index">
@@ -558,21 +634,24 @@
 
           
 
+          
+          
+
+          
         </div>
       </header>
     
 
 
-    <div class="post-body">
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody">
-            
-              <h2 id="安装：">安装：</h2><p>使用apt安装(sublime-text-2)<br>sudo add-apt-repository ppa:webupd8team/sublime-text-2<br>sudo apt-get update<br>sudo apt-get install sublime-text</p>
+          
+            <h2 id="安装：">安装：</h2><p>使用apt安装(sublime-text-2)<br>sudo add-apt-repository ppa:webupd8team/sublime-text-2<br>sudo apt-get update<br>sudo apt-get install sublime-text</p>
 <h2 id="添加包管理工具">添加包管理工具</h2><ul>
 <li><p>Sublime-Text-2<br>按下`ctrl + ``来打开Sublime Text Console，输入一下代码：</p>
 <figure class="highlight lasso"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> urllib2,os,hashlib;</span><br><span class="line">h = <span class="string">'2915d1851351e5ee549c20394736b442'</span> + <span class="string">'8bc59f460fa1548d1514676163dafc88'</span>;</span><br><span class="line">pf = <span class="string">'Package Control.sublime-package'</span>;</span><br><span class="line">ipp = sublime<span class="built_in">.</span>installed_packages_path();</span><br><span class="line">os<span class="built_in">.</span>makedirs( ipp  ) <span class="keyword">if</span> <span class="subst">not</span> os<span class="built_in">.</span>path<span class="built_in">.</span>exists(ipp) <span class="keyword">else</span> <span class="literal">None</span>;</span><br><span class="line">urllib2<span class="built_in">.</span>install_opener( urllib2<span class="built_in">.</span>build_opener( urllib2<span class="built_in">.</span>ProxyHandler() )  );</span><br><span class="line"><span class="keyword">by</span> = urllib2<span class="built_in">.</span>urlopen( <span class="string">'http://packagecontrol.io/'</span> + pf<span class="built_in">.</span>replace(<span class="string">' '</span>, <span class="string">'%20'</span>) )<span class="built_in">.</span>read();</span><br><span class="line">dh = hashlib<span class="built_in">.</span>sha256(<span class="keyword">by</span>)<span class="built_in">.</span>hexdigest();</span><br><span class="line">open( os<span class="built_in">.</span>path<span class="built_in">.</span><span class="keyword">join</span>( ipp, pf ), <span class="string">'wb'</span>  )<span class="built_in">.</span>write(<span class="keyword">by</span>) <span class="keyword">if</span> dh == h <span class="keyword">else</span> <span class="literal">None</span>;</span><br><span class="line">print(<span class="string">'Error validating download (got %s instead of %s), please try manual install'</span> % (dh, h)</span><br><span class="line"><span class="keyword">if</span> dh != h <span class="keyword">else</span> <span class="string">'Please restart Sublime Text to finish installation'</span>)</span><br></pre></td></tr></table></figure>
@@ -582,9 +661,16 @@
 </li>
 </ul>
 <h2 id="使用包管理工具安装插件">使用包管理工具安装插件</h2>
-            
-          </span>
+          
         
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -633,7 +719,10 @@
 
         <div class="post-meta">
           <span class="post-time">
-            發表於
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
             <time itemprop="dateCreated" datetime="2015-09-23T19:21:38+08:00" content="2015-09-23">
               2015-09-23
             </time>
@@ -641,7 +730,11 @@
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp; 分類於
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/programming/" itemprop="url" rel="index">
@@ -669,21 +762,24 @@
 
           
 
+          
+          
+
+          
         </div>
       </header>
     
 
 
-    <div class="post-body">
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody">
-            
-              <h2 id="1-_Android屏幕适配分辨率">1. Android屏幕适配分辨率  </h2><p>常见需要适配的屏幕分辨率有<strong>1280 x 720</strong>、<strong>800 x 480</strong>、<strong>854 x 480</strong>、<strong>1920 x 1080</strong>、<strong>960 x 540</strong>、<strong>480 x 320</strong>.</p>
+          
+            <h2 id="1-_Android屏幕适配分辨率">1. Android屏幕适配分辨率  </h2><p>常见需要适配的屏幕分辨率有<strong>1280 x 720</strong>、<strong>800 x 480</strong>、<strong>854 x 480</strong>、<strong>1920 x 1080</strong>、<strong>960 x 540</strong>、<strong>480 x 320</strong>.</p>
 <h2 id="2-_密度无关像素：dot_per">2. 密度无关像素：dot per</h2><p> inch(dpi)：<strong>其值与屏幕尺寸和屏幕分辨率有关。</strong>以密度无关像素对设备进行区分，大致分为如下几类：（括号内为图片放缩比例）</p>
 <ul>
 <li>mdpi ( x 1)     —— 120 ～160 dpi</li>
@@ -731,9 +827,16 @@
 </blockquote>
 <p>参考资料：<br><a href="http://blog.csdn.net/lmj623565791/article/details/46695347" target="_blank" rel="external">http://blog.csdn.net/lmj623565791/article/details/46695347</a></p>
 
-            
-          </span>
+          
         
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -782,7 +885,10 @@
 
         <div class="post-meta">
           <span class="post-time">
-            發表於
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
             <time itemprop="dateCreated" datetime="2015-09-19T15:50:38+08:00" content="2015-09-19">
               2015-09-19
             </time>
@@ -790,7 +896,11 @@
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp; 分類於
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/programming/" itemprop="url" rel="index">
@@ -818,12 +928,16 @@
 
           
 
+          
+          
+
+          
         </div>
       </header>
     
 
 
-    <div class="post-body">
+    <div class="post-body" itemprop="articleBody">
 
       
       
@@ -834,10 +948,18 @@
 <p>从上我们可以看出来，View的绘制过程大体需要进行三大步骤：<br>1.measure —— 确定每一个View的长度和宽度。<br>2.layout —— 确定每一个View所应该摆放的位置。<br>3.draw —— 根据每一个View大小来绘制内容。</p>
           <div class="post-more-link text-center">
             <a class="btn" href="/2015/09/19/Android的View绘制过程/#more" rel="contents">
-              閱讀全文 &raquo;
+              阅读全文 &raquo;
             </a>
           </div>
         
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -886,7 +1008,10 @@
 
         <div class="post-meta">
           <span class="post-time">
-            發表於
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
             <time itemprop="dateCreated" datetime="2015-09-18T00:27:40+08:00" content="2015-09-18">
               2015-09-18
             </time>
@@ -894,7 +1019,11 @@
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp; 分類於
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/programming/" itemprop="url" rel="index">
@@ -922,21 +1051,24 @@
 
           
 
+          
+          
+
+          
         </div>
       </header>
     
 
 
-    <div class="post-body">
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody">
-            
-              <p>dispatchTouchEvent()函数内部：<br>Action_Move：</p>
+          
+            <p>dispatchTouchEvent()函数内部：<br>Action_Move：</p>
 <ul>
 <li><p>在PtrIndicator中保存滑动的逻辑和状态</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//将这次的事件保存起来</span></span><br><span class="line">mLastMoveEvent = e</span><br><span class="line"></span><br><span class="line"><span class="comment">//通过上一次的位置保存offsetX和offsetY，并且调用processOnMove计算出mHeaderView和mContentView需要进行的位移（阻滞系数）</span></span><br><span class="line">mPtrIndicator.onMove()</span><br></pre></td></tr></table></figure>
@@ -961,9 +1093,16 @@
 </li>
 </ul>
 
-            
-          </span>
+          
         
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -1012,7 +1151,10 @@
 
         <div class="post-meta">
           <span class="post-time">
-            發表於
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
             <time itemprop="dateCreated" datetime="2015-08-27T11:16:48+08:00" content="2015-08-27">
               2015-08-27
             </time>
@@ -1020,7 +1162,11 @@
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp; 分類於
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/programming/" itemprop="url" rel="index">
@@ -1048,21 +1194,24 @@
 
           
 
+          
+          
+
+          
         </div>
       </header>
     
 
 
-    <div class="post-body">
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody">
-            
-              <h1 id="Android_ListView中的Adapter">Android ListView中的Adapter</h1><ul>
+          
+            <h1 id="Android_ListView中的Adapter">Android ListView中的Adapter</h1><ul>
 <li>四个重要方法重载<ol>
 <li>getView: 在该条item被显示出来的时候调用，用来绘制该条item的具体View的内容</li>
 <li>getCount: 获取当前ListView中的数据条数</li>
@@ -1073,9 +1222,16 @@
 </ul>
 <p>可以看到，这两个函数都是public，并且在查看代码后发现，以上两个函数纯粹是给客户端调用的，对于Android系统来说是没有用的。</p>
 
-            
-          </span>
+          
         
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -1124,7 +1280,10 @@
 
         <div class="post-meta">
           <span class="post-time">
-            發表於
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
             <time itemprop="dateCreated" datetime="2015-08-18T13:41:48+08:00" content="2015-08-18">
               2015-08-18
             </time>
@@ -1132,7 +1291,11 @@
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp; 分類於
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/programming/" itemprop="url" rel="index">
@@ -1160,21 +1323,24 @@
 
           
 
+          
+          
+
+          
         </div>
       </header>
     
 
 
-    <div class="post-body">
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody">
-            
-              <ul>
+          
+            <ul>
 <li><p>在使用系统默认的LayoutAnimation时，只需要在Layout中添加属性android:animateLayoutChanges = “true” 即可。</p>
 <figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="title">LinearLayout</span> <span class="attribute">android:id</span>=<span class="value">"@+id/container"</span></span><br><span class="line">    <span class="attribute">android:animateLayoutChanges</span>=<span class="value">"true"</span></span><br><span class="line">    <span class="attribute">...</span></span><br><span class="line">/&gt;</span></span><br></pre></td></tr></table></figure>
 </li>
@@ -1197,9 +1363,16 @@
 </ul>
 <p>参考资料：<br><a href="http://blog.csdn.net/lmj623565791/article/details/38092093" target="_blank" rel="external">http://blog.csdn.net/lmj623565791/article/details/38092093</a> ——《Android 属性动画（Property Animation） 完全解析 （下）》</p>
 
-            
-          </span>
+          
         
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -1248,7 +1421,10 @@
 
         <div class="post-meta">
           <span class="post-time">
-            發表於
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
             <time itemprop="dateCreated" datetime="2015-08-17T16:25:22+08:00" content="2015-08-17">
               2015-08-17
             </time>
@@ -1256,7 +1432,11 @@
 
           
             <span class="post-category" >
-              &nbsp; | &nbsp; 分類於
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
                   <a href="/categories/programming/" itemprop="url" rel="index">
@@ -1284,21 +1464,24 @@
 
           
 
+          
+          
+
+          
         </div>
       </header>
     
 
 
-    <div class="post-body">
+    <div class="post-body" itemprop="articleBody">
 
       
       
 
       
         
-          <span itemprop="articleBody">
-            
-              <h2 id="继承自View">继承自View</h2><ul>
+          
+            <h2 id="继承自View">继承自View</h2><ul>
 <li><p><strong>重写onMeasure()</strong><br>在这个函数中主要完成对wrap_content的支持,所以需要处理在设置wrap_content的时候，该控件的具体大小，在这里我们假设设置wrap_content时，控件的大小被设定为一个恒定的值。</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//定义的函数成员，一般该值需要默认定义好</span></span><br><span class="line"><span class="keyword">int</span> mWrapContentWidth = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">int</span> mWrapContentHeight = <span class="number">10</span>;</span><br><span class="line"></span><br><span class="line"><span class="comment">//onMeasure中主要是需要完成对控件大小的设定,</span></span><br><span class="line"><span class="comment">//参数是父控件根据其MeasureSpec和当前控件的Layoutparams合成的</span></span><br><span class="line"><span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onMeasure</span><span class="params">(<span class="keyword">int</span> widthMeasureSpec, <span class="keyword">int</span> heightMeasureSpec)</span> </span>&#123;</span><br><span class="line">	<span class="keyword">super</span>.onMeasure(widthMeasureSpec, heightMeasureSpec);</span><br><span class="line">	<span class="keyword">int</span> widthSpecMode = MeasureSpec.getMode(widthMeasureSpec);</span><br><span class="line">	<span class="keyword">int</span> heightSpecMode = MeasureSpec.getMode(heightMeasureSpec);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">int</span> resultWidthSize = MeasureSpec.getSize(widthMeasureSpec);</span><br><span class="line">	<span class="keyword">int</span> resultHeightSize = MeasureSpec.getSize(heightMeasureSpec);</span><br><span class="line"></span><br><span class="line">	<span class="keyword">if</span>(widthSpecMode == MeasureSpec.AT_MOST &amp;&amp; heightSpecMode == MeasureSpec.AT_MOST) &#123;</span><br><span class="line">		<span class="comment">//此时认为xml中该控件的长宽均被设定为wrap_content</span></span><br><span class="line">		<span class="comment">//此时控件的最小长宽由自己来处理</span></span><br><span class="line">		resultWidthSize = mWrapContentWidth;</span><br><span class="line">		resultHeightSize = mWrapContentHeight;</span><br><span class="line">	&#125;<span class="keyword">else</span> <span class="keyword">if</span> (widthSpecMode == MeasureSpec.AT_MOST) &#123;</span><br><span class="line">		resultWidthSize = mWrapContentWidth;</span><br><span class="line">	&#125;<span class="keyword">else</span> <span class="keyword">if</span> (heightSpecMode == MeasureSpec.AT_MOST) &#123;</span><br><span class="line">		resultHeightSize = mWrapContentHeight;</span><br><span class="line">	&#125;</span><br><span class="line">	setMeasuredDimension(resultWidthSize, resultHeightSize);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
@@ -1320,9 +1503,16 @@
 </li>
 </ol>
 
-            
-          </span>
+          
         
+      
+    </div>
+    
+    <div>
+      
+    </div>
+
+    <div>
       
     </div>
 
@@ -1340,23 +1530,20 @@
 
 
     
-
   </section>
 
   
 
 
+          </div>
+          
+
+
+          
+
         </div>
-
         
-
-
-        
-
-      </div>
-
-      
-        
+          
   
   <div class="sidebar-toggle">
     <div class="sidebar-toggle-line-wrap">
@@ -1375,31 +1562,37 @@
 
       <section class="site-overview sidebar-panel  sidebar-panel-active ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
-          <img class="site-author-image" src="/images/freedom.jpg" alt="Deng Changbo" itemprop="image"/>
+          <img class="site-author-image" itemprop="image"
+               src="/images/freedom.jpg"
+               alt="Deng Changbo" />
           <p class="site-author-name" itemprop="name">Deng Changbo</p>
+          <p class="site-description motion-element" itemprop="description">学习总结  习惯养成  个人信仰</p>
         </div>
-        <p class="site-description motion-element" itemprop="description">学习总结  习惯养成  个人信仰</p>
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/archives">
               <span class="site-state-item-count">10</span>
-              <span class="site-state-item-name">文章</span>
+              <span class="site-state-item-name">日志</span>
             </a>
           </div>
 
-          <div class="site-state-item site-state-categories">
-            <a href="/categories">
-              <span class="site-state-item-count">2</span>
-              <span class="site-state-item-name">分類</span>
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-name">分类</span>
               </a>
-          </div>
+            </div>
+          
 
-          <div class="site-state-item site-state-tags">
-            <a href="/tags">
-              <span class="site-state-item-count">5</span>
-              <span class="site-state-item-name">標籤</span>
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">标签</span>
               </a>
-          </div>
+            </div>
+          
 
         </nav>
 
@@ -1419,9 +1612,8 @@
         
         
 
-        <div class="links-of-author motion-element">
-          
-        </div>
+        
+        
 
       </section>
 
@@ -1431,7 +1623,8 @@
   </aside>
 
 
-      
+        
+      </div>
     </main>
 
     <footer id="footer" class="footer">
@@ -1441,37 +1634,94 @@
   &copy; 
   <span itemprop="copyrightYear">2016</span>
   <span class="with-love">
-    <i class="icon-next-heart fa fa-heart"></i>
+    <i class="fa fa-heart"></i>
   </span>
   <span class="author" itemprop="copyrightHolder">Deng Changbo</span>
 </div>
 
 <div class="powered-by">
-  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 強力驅動
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
 </div>
 
 <div class="theme-info">
-  主題 -
+  主题 -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Mist
   </a>
 </div>
 
+        
 
-
+        
       </div>
     </footer>
 
-    <div class="back-to-top"></div>
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
   </div>
 
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
   <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
 
   
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
   
 
   
-    
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
 
   
     
@@ -1489,36 +1739,21 @@
       || document.getElementsByTagName('body')[0]).appendChild(ds);
     })();
   </script>
-    
-     
 
-
+  
     
   
 
-  
-  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js"></script>
-  <script type="text/javascript" src="/js/fancy-box.js?v=0.4.5.2"></script>
 
 
-  <script type="text/javascript" src="/js/helpers.js?v=0.4.5.2"></script>
-  <script type="text/javascript" src="/vendors/velocity/velocity.min.js"></script>
-<script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js"></script>
 
-<script type="text/javascript" src="/js/motion.js?v=0.4.5.2" id="motion.global"></script>
-
-
-  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
 
   
-
-  <script type="text/javascript" src="/js/bootstrap.js"></script>
-
   
   
 
   
+
   
 
 </body>
